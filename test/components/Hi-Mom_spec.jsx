@@ -17,10 +17,11 @@ describe('When Hi-Mom component is rendered:', () => {
             text : 'Hi Mom!'
         };
 
+        let {className, text} = expectedProps;
         const component = renderIntoDocument(
             <HiMom 
-                className={expectedProps.className}
-                text={expectedProps.text}
+                className={className}
+                text={text}
             />
         );
         const hiMomHeader = scryRenderedDOMComponentsWithTag(component, 'h1');
@@ -28,7 +29,7 @@ describe('When Hi-Mom component is rendered:', () => {
         let  [h1] = hiMomHeader; 
 
         expect(hiMomHeader.length).to.eql(1);
-        expect(h1.className).to.eql(expectedProps.className);
-        expect(h1.textContent).to.eql(expectedProps.text);
+        expect(h1.className).to.eql(className);
+        expect(h1.textContent).to.eql(text);
     });
 });
