@@ -9,12 +9,10 @@ import {expect} from 'chai';
 describe('When Hi-Mom component is rendered:', () => {
     it('should render "Hi-Mom" component with h1 heading w/ "Hi Mom!"', () => {
 
-        let expectedProps = {
-            className : 'hi-mom',
-            text : 'Hi Mom!'
-        };
 
-        const component = renderIntoDocument(<HiMom {...expectedProps}/>);
+        const component = renderIntoDocument(
+            <HiMom text='Hi Mom!'/>
+        );
         const hiMomHeader = scryRenderedDOMComponentsWithTag(component, 'h1');
 
         let  [h1] = hiMomHeader; 
