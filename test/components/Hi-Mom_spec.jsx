@@ -11,13 +11,17 @@ describe('When Hi-Mom component is rendered:', () => {
 
 
         const component = renderIntoDocument(
-            <HiMom text='Hi Mom!'/>
+            <HiMom 
+                className='hi-mom'
+                text='Hi Mom!'
+            />
         );
         const hiMomHeader = scryRenderedDOMComponentsWithTag(component, 'h1');
 
         let  [h1] = hiMomHeader; 
 
         expect(hiMomHeader.length).to.eql(1);
+        expect(h1.className).to.eql('hi-mom');
         expect(h1.textContent).to.eql('Hi Mom!');
     });
 });
