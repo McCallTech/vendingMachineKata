@@ -7,9 +7,19 @@ import {
 import HiMom from '../../src/components/Hi-Mom';
 import {expect} from 'chai';
 describe('When Hi-Mom component is rendered:', () => {
-    it('should render "Hi-Mom" component with h1 heading', () => {
-        const component = renderIntoDocument(<HiMom/>);
+    it('should render "Hi-Mom" component with h1 heading w/ "Hi Mom!"', () => {
+
+        let expectedProps = {
+            className : 'hi-mom',
+            text : 'Hi Mom!'
+        };
+
+        const component = renderIntoDocument(<HiMom {...expectedProps}/>);
         const hiMomHeader = scryRenderedDOMComponentsWithTag(component, 'h1');
+
+        let  [h1] = hiMomHeader; 
+
         expect(hiMomHeader.length).to.eql(1);
+        expect(h1.textContent).to.eql('Hi Mom!');
     });
 });
