@@ -1,7 +1,10 @@
 language: node_js
+
 node_js:
 - '4.4.3'
+
 script: npm run-script deploy
+
 env:
  global:
  - GH_REF: github.com/McCallTech/vendingMachineKata.git
