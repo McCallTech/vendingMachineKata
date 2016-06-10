@@ -10,7 +10,8 @@ fi
 
 rev=$(git rev-parse --short HEAD)
 
-cd stage/_book
+cd vendingMachineKata
+
 
 git init
 git config user.name "Josh McCall"
