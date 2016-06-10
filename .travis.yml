@@ -14,13 +14,13 @@ script:
   - npm test
   - webpack
 
-#deploy:
-#  provider: script
-#  script: ./deploy.sh
-#  skip_cleanup: true
-#  on:
-#    branch: master
-#    tags: true
+deploy:
+  provider: script
+  script: ./deploy.sh
+  skip_cleanup: true
+  on:
+    branch: master
+    tags: true
 
 notifications:
   email:
