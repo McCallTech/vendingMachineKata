@@ -4,7 +4,7 @@ node_js:
 script: npm run-script deploy
 env:
  global:
- - GH_REF: github.com/knode/node-meatspace.git
+ - GH_REF: github.com/McCallTech/vendingMachineKata.git
  - secure: JQI3KN7yurE4bzp2X9tuGxR7UCSNJpJpRQcSSxe0beHhY1zp11usi6vjpR50rve3R+V3luaXHDF6YoV6q8wDYcK6+2oDGS│yntheticKeyboardEvent.j
 wxym+NtID8/X0cH2GuWzWRjDD3972VHsVbIr1UE1ltDZcM1ISznvgF7R7k4jPNOgaH3xF8tTIMIfxjRdR2+mi7KAg2Pb5+│s 2.75 kB {0} [built]
 l7IO+m7Fy7e/SsCimffqUyVrV09fvdXFtxLCmbsgwPd2DREUNt+uuNVdb73S7xrr4SS867hjImML1CW4rrhBdSFYHGTAiL│  [244] ./~/react/lib/g
