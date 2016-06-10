@@ -3,7 +3,9 @@ language: node_js
 node_js:
 - '4.4.3'
 
-script: npm run-script deploy
+script: 
+  - chmod a+x deploy-ghpages.sh
+  - npm run-script deploy
 
 env:
  global:
