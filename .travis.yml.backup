@@ -1,0 +1,31 @@
+sudo: required
+dist: trusty
+
+language: node_js
+
+node_js:
+  - 4.3.1
+
+install:
+  - npm install -g webpack 
+  - npm install
+
+script:
+  - npm test
+  - webpack
+
+after_success:
+  - bash deploy.sh
+
+#deploy:
+#  provider: script
+#  script: ./deploy.sh
+#  skip_cleanup: true
+#  on:
+#    branch: master
+#    tags: true
+
+notifications:
+  email:
+    on_failure: change
+    on_success: change
