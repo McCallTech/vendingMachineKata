@@ -14,7 +14,7 @@ describe('When Hi-Mom component is rendered:', () => {
 
         expectedProps = {
             className: 'hi-mom',
-            text : 'Hi Mom!'
+            text : 'Hi Momma!'
         };
 
         let {className, text} = expectedProps;

@@ -6,7 +6,7 @@ import HiMom from './components/Hi-Mom';
 
 let expectedProps = {
     className: 'hi-mom',
-    text : 'Hi Mom!'
+    text : 'Hi Momma!'
 };
 
 ReactDOM.render(
