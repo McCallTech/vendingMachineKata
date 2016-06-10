@@ -1,31 +1,15 @@
-sudo: required
-dist: trusty
-
 language: node_js
-
 node_js:
-  - 4.3.1
-
-install:
-  - npm install -g webpack 
-  - npm install
-
-script:
-  - npm test
-  - webpack
-
-after_success:
-  - bash deploy.sh
-
-#deploy:
-#  provider: script
-#  script: ./deploy.sh
-#  skip_cleanup: true
-#  on:
-#    branch: master
-#    tags: true
-
-notifications:
-  email:
-    on_failure: change
-    on_success: change
+- '4.4.3'
+script: npm run-script deploy
+env:
+ global:
+ - GH_REF: github.com/knode/node-meatspace.git
+ - secure: JQI3KN7yurE4bzp2X9tuGxR7UCSNJpJpRQcSSxe0beHhY1zp11usi6vjpR50rve3R+V3luaXHDF6YoV6q8wDYcK6+2oDGS│yntheticKeyboardEvent.j
+wxym+NtID8/X0cH2GuWzWRjDD3972VHsVbIr1UE1ltDZcM1ISznvgF7R7k4jPNOgaH3xF8tTIMIfxjRdR2+mi7KAg2Pb5+│s 2.75 kB {0} [built]
+l7IO+m7Fy7e/SsCimffqUyVrV09fvdXFtxLCmbsgwPd2DREUNt+uuNVdb73S7xrr4SS867hjImML1CW4rrhBdSFYHGTAiL│  [244] ./~/react/lib/g
+R7PnkHixbXru7p5qATOOEI4pUSgkEPZXFy2DewBuUqG1g4224Nymle5Uf42kErZYYn7HV4OuXRobW48Xulr+ALWFoBG3Ra│etEventCharCode.js 1.54
+ntxjEeVvwyJVOkWkpirBO0/f5GB+JjtdTDBsgs457obVFwaaIggCNXrzTIH6dsPN2WWElRoK1xft2YdGkndzLu8JcLgETd│ kB {0} [built]
+zMdTckjdBznBZ1jJXxGzXVE+QY12S3iaUmSNB0jtT6k65Bm9p1pGeRiZnPxTmLUyGTls28fK9LVBJmGUnjMNFjPTe2Ulxn│  [245] ./~/react/lib/g
+ZdOQi80qqmg526OZnlg3xAfY0MWce7N5bBqBHjxd2lFSiY/GVe8RPucorY8FZ7ZYSGdPDUtsVNmP9+dDqAcoGRPGJE1b4h│etEventKey.js 2.9 kB {0
+TyxBJ0UMyM/XwIkFgioYTNKgI=
