@@ -9,12 +9,12 @@ import {expect} from 'chai';
 
 let expectedProps;
 
-describe('When Hi-Mom component is rendered:', () => {
-    it('should render "Hi-Mom" component with h1 heading w/ "Hi Mom!"', () => {
+describe('When Hello World component is rendered:', () => {
+    it('should render "Hello World" component with h1 heading w/ "Hi Mom!"', () => {
 
         expectedProps = {
             className: 'hi-mom',
-            text : 'Hi Momma!'
+            text : 'Hello World!!!!'
         };
 
         let {className, text} = expectedProps;
