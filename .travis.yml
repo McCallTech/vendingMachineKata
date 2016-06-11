@@ -12,8 +12,8 @@ script:
   - docker ps | grep -q vendingmachinekata 
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker build -t joshmccall221/vendingmachinekata .
-  - docker tag joshmccall221/vendingmachinekata joshmccall221/vendingmachinekata:'v.0.0'
-  - docker run -d -p 127.0.0.1:80:80 --name vendingmachinekata joshmccall221/vendingmachinekata:'v.0.0'
+  - docker tag joshmccall221/vendingmachinekata joshmccall221/vendingmachinekata:$TRAVIS_BUILD_NUMBER
+  - docker run -d -p 127.0.0.1:80:80 --name vendingmachinekata joshmccall221/vendingmachinekata:$TRAVIS_BUILD_NUMBER
   
 after_success:
   - webpack
