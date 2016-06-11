@@ -7,7 +7,7 @@
 # Codenvy, S.A. - initial API and implementation
 
 FROM codenvy/debian_jre
-ENV NODE_VERSION=0.12.9 \
+ENV NODE_VERSION=4.3.1 \
     NODE_PATH=/usr/local/lib/node_modules
     
 RUN sudo apt-get update && \
