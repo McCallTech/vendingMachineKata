@@ -6,7 +6,7 @@ import HiMom from './components/Hi-Mom';
 
 let expectedProps = {
     className: 'hi-mom',
-    text : 'Do not deploy!: 4'
+    text : 'Momma, look what I can do!!!!!'
 };
 
 
