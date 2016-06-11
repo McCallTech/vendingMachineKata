@@ -6,11 +6,18 @@ node_js:
 script: 
   - npm install
   - npm test
+  - docker ps | grep -q vendingmachinekata 
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker build -t joshmccall221/vendingmachinekata .
+  - docker tag joshmccall221/vendingmachinekata joshmccall221/vendingmachinekata:'v.0.0'
+  - docker run -d -p 127.0.0.1:80:80 --name vendingmachinekata joshmccall221/vendingmachinekata:'v.0.0'
   
 after_success:
   - webpack
   - chmod a+x deploy-ghpages.sh
   - npm run-script deploy
+  - docker push joshmccall221/vendingmachinekata
+  - docker push joshmccall221/vendingmachinekata:$TRAVIS_BUILD_NUMBER
 
 env:
  global:
