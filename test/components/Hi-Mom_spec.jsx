@@ -17,6 +17,8 @@ describe('When Hello World component is rendered:', () => {
             text : 'Hello World!!!!'
         };
 
+
+
         let {className, text} = expectedProps;
         const component = renderIntoDocument(
             <HiMom 
