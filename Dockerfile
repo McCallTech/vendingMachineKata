@@ -38,7 +38,7 @@ RUN sudo apt-get update && \
 EXPOSE 3000 5000 8080 9000
 RUN sudo npm install -g npm@latest
 
-RUN git clone https://github.com/McCallTech/vendingMachineKata.git /vendingMachineKata
+RUN sudo git clone https://github.com/McCallTech/vendingMachineKata.git /vendingMachineKata
 WORKDIR /vendingMachineKata
 
 CMD tail -f /dev/null
