@@ -28,6 +28,7 @@ describe('When Hello World component is rendered:', () => {
 
         let  [h1] = hiMomHeader; 
 
+        expect(0).to.eql(1);
         expect(hiMomHeader.length).to.eql(1);
         expect(h1.className).to.eql(className);
         expect(h1.textContent).to.eql(text);
