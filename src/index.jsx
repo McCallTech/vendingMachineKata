@@ -6,7 +6,7 @@ import HiMom from './components/Hi-Mom';
 
 let expectedProps = {
     className: 'hi-mom',
-    text : 'Do not deploy!'
+    text : 'Do not deploy! : 2'
 };
 
 ReactDOM.render(
