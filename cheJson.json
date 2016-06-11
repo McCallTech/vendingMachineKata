@@ -1,0 +1,86 @@
+{
+    "id": "node-default",
+    "creator": "ide",
+    "name": "Node",
+    "description": "Default Node Stack with Node 0.12.",
+    "scope": "general",
+    "tags": [
+      "Ubuntu",
+      "Git",
+      "Node.JS",
+      "NPM",
+      "Gulp",
+      "Bower",
+      "Grunt",
+      "Yeoman",
+      "Angular",
+      "Karma"
+    ],
+    "components": [
+      {
+        "name": "Node.JS",
+        "version": "0.12.9"
+      },
+      {
+        "name": "NPM",
+        "version": "---"
+      },
+      {
+        "name": "Gulp",
+        "version": "---"
+      },
+      {
+        "name": "Bower",
+        "version": "---"
+      },
+      {
+        "name": "Grunt",
+        "version": "---"
+      },
+      {
+        "name": "Yeoman",
+        "version": "---"
+      }
+    ],
+    "source": {
+      "type": "image",
+      "origin": "codenvy/node"
+    },
+    "workspaceConfig": {
+      "environments": [
+        {
+          "name": "default",
+          "recipe": null,
+          "machineConfigs": [
+            {
+              "name": "default",
+              "limits": {
+                "ram": 1000
+              },
+              "source": {
+                "location": "stub",
+                "type": "dockerfile"
+              },
+              "type": "docker",
+              "dev": true
+            }
+          ]
+        }
+      ],
+      "name": "default",
+      "defaultEnv": "default",
+      "description": null
+    },
+    "acl": [
+      {
+        "user": "*",
+        "actions": [
+          "read"
+        ]
+      }
+    ],
+    "stackIcon": {
+      "name": "type-node.svg",
+      "mediaType": "image/svg+xml"
+    }
+  }
