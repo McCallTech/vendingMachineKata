@@ -52,7 +52,11 @@ Local => travis-ci => gh-pages
                    => dockerhub
                    
 
-### Sources, reading list and credits: 
+#### Sources, reading list and credits: 
+##### CM: 
+[Linode peformance with low teir memory](https://www.centos.org/docs/5/html/5.2/Deployment_Guide/s2-swap-creating-file.html)
+
+##### Docker:
 [Docker hub deployment: github, travis, dockerhub (blue/green with depcon)](http://depcon.containx.io/docs/travis)
 
 [Docker formulas with Salt](https://github.com/saltstack-formulas/docker-formula#docker-containers)
@@ -60,5 +64,5 @@ Local => travis-ci => gh-pages
 [Docker Cheat Sheet](https://github.com/wsargent/docker-cheat-sheet)
 
 [Docker exec] (https://docs.docker.com/engine/reference/commandline/exec/)
-
+##### GitHub:
 [Awesome Sheilds](http://shields.io/)
