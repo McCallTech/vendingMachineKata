@@ -59,7 +59,7 @@ Local => travis-ci => gh-pages
 ##### Deployment: 
 [Docker Blue/Green](https://botleg.com/stories/blue-green-deployment-with-docker/)
 
-##### Docker:
+##### Container:
 [Docker hub deployment: github, travis, dockerhub (blue/green with depcon)](http://depcon.containx.io/docs/travis)
 
 [Docker formulas with Salt](https://github.com/saltstack-formulas/docker-formula#docker-containers)
