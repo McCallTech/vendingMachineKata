@@ -6,6 +6,12 @@
 # Contributors:
 # Codenvy, S.A. - initial API and implementation
 
+# curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | sh && \
+#	source ~/.nvm/nvm.sh && \
+#	nvm install 4.3.1 && \
+#	node --version && \
+#	echo 'source ~/.nvm/nvm.sh; nvm use 4.3.1 &>/dev/null ' >> ~/.bashrc
+
 FROM codenvy/debian_jre
 ENV NODE_VERSION=4.3.1 \
     NODE_PATH=/usr/local/lib/node_modules
@@ -17,11 +23,6 @@ RUN sudo apt-get update && \
     sudo apt-get -y autoremove && \
     sudo apt-get -y clean && \
     sudo rm -rf /var/lib/apt/lists/* && \
-	curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | sh && \
-	. ~/.nvm/nvm.sh && \
-	nvm install 4.3.1 && \
-	node --version && \
-	echo 'source ~/.nvm/nvm.sh; nvm use 4.3.1 &>/dev/null ' >> ~/.bashrc 
 
 
 
