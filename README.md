@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/McCallTech/vendingMachineKata.svg?branch=master)](https://travis-ci.org/McCallTech/vendingMachineKata)
-
+[![Build Status](https://travis-ci.org/McCallTech/vendingMachineKata.svg?branch=master)](https://travis-ci.org/McCallTech/vendingMachineKata) 
+[![Gh-Pages](https://img.shields.io/badge/gh--pages-Courtesy%20of%20Travis--CI-green.svg)](http://mccalltech.github.io/vendingMachineKata/)
 
 #Kata:
 ## vendingMachineKata
@@ -52,4 +52,6 @@ Local => travis-ci => gh-pages
                    => dockerhub
                    
 
-
+### Sources, reading list and credits: 
+docker hub deployment triggered by push to master: [blue/green with depcon](http://depcon.containx.io/docs/travis)
+[Awesome Sheilds](http://shields.io/)
