@@ -65,4 +65,4 @@ RUN sudo npm install -g npm@latest
 RUN sudo sudo git clone https://github.com/McCallTech/vendingMachineKata.git /vendingMachineKata && sudo chown user:user /vendingMachineKata && cd /vendingMachineKata && sudo npm install -g webpack-dev-server && npm install
 WORKDIR /projects
 
-CMD webpack-dev-server
+CMD  tail -f /dev/null
