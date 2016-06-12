@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/McCallTech/vendingMachineKata.svg?branch=master)](https://travis-ci.org/McCallTech/vendingMachineKata) 
-[![Gh-Pages](https://img.shields.io/badge/gh--pages-Courtesy%20of%20Travis--CI-green.svg)](http://mccalltech.github.io/vendingMachineKata/)
+[![Gh-Pages](https://img.shields.io/badge/gh--pages-Deployment%20courtesy%20of%20Travis--CI-green.svg)](http://mccalltech.github.io/vendingMachineKata/)
 
 #Kata:
 ## vendingMachineKata
@@ -54,7 +54,7 @@ Local => travis-ci => gh-pages
 
 #### Sources, reading list and credits: 
 ##### CM: 
-[Linode peformance with low teir memory](https://www.centos.org/docs/5/html/5.2/Deployment_Guide/s2-swap-creating-file.html)
+[Linode peformance with low tier memory](https://www.centos.org/docs/5/html/5.2/Deployment_Guide/s2-swap-creating-file.html)
 
 ##### Docker:
 [Docker hub deployment: github, travis, dockerhub (blue/green with depcon)](http://depcon.containx.io/docs/travis)
