@@ -9,7 +9,11 @@ sudo apt-get update -y
 
 sudo apt-get install salt-minion -y
 
-salt-call --local pkg.install git make vim tmux ack-grep 
+salt-call --local pkg.install git 
+salt-call --local pkg.install make 
+salt-call --local pkg.install vim 
+salt-call --local pkg.install tmux 
+salt-call --local pkg.install ack-grep 
 
 
 mkdir /srv/salt
