@@ -62,7 +62,7 @@ RUN cd /home/user && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NO
 EXPOSE 3000 5000 8080 9000
 RUN sudo npm install -g npm@latest
 
-RUN sudo git clone https://github.com/McCallTech/vendingMachineKata.git /vendingMachineKata
-WORKDIR /vendingMachineKata
+RUN sudo git clone https://github.com/McCallTech/vendingMachineKata.git /projects/vendingMachineKata
+WORKDIR /projects
 
 CMD tail -f /dev/null
