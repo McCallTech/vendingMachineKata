@@ -56,6 +56,9 @@ Local => travis-ci => gh-pages
 ##### CM: 
 [Linode peformance with low tier memory](https://www.centos.org/docs/5/html/5.2/Deployment_Guide/s2-swap-creating-file.html)
 
+##### Deployment: 
+[Docker Blue/Green](https://botleg.com/stories/blue-green-deployment-with-docker/)
+
 ##### Docker:
 [Docker hub deployment: github, travis, dockerhub (blue/green with depcon)](http://depcon.containx.io/docs/travis)
 
