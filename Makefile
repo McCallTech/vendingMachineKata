@@ -4,10 +4,12 @@ init:
     # - Download sql dumps or copy configuration templates
     #   that a dev needs to get up and running.
     # - Install git hooks (more below)
-  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker build -t containx/depcon-site .
-  - docker tag containx/depcon-site containx/depcon-site:$TRAVIS_BUILD_NUMBER
-  - docker run -d -p 127.0.0.1:80:80 --name depcon containx/depcon-site
+    # apt-get update && apt-get install make curl && curl -o- https://raw.githubusercontent.com/McCallTech/vendingMachineKata/master/Makefile >> Makefile && make init
+  - curl -o- https://raw.githubusercontent.com/joshmccall221/dotfiles/master/salt | bash 
+  - git clone https://github.com/joshmccall221/dotfiles.git 
+  - cd dotfiles 
+  - make eclipse_che
+
 test:
     # Run unit tests, code coverage, and linters
 docs:
