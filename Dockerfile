@@ -18,7 +18,7 @@ RUN sudo apt-get update && \
     sudo apt-get -y clean && \
     sudo rm -rf /var/lib/apt/lists/* && \
 	curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | sh && \
-	source ~/.nvm/nvm.sh && \
+	. ~/.nvm/nvm.sh && \
 	nvm install 4.3.1 && \
 	node --version && \
 	echo 'source ~/.nvm/nvm.sh; nvm use 4.3.1 &>/dev/null ' >> ~/.bashrc 
