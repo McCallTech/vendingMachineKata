@@ -4,8 +4,9 @@
 #Kata:
 ## vendingMachineKata
 
+### [Vending Machine Kata](https://github.com/guyroyse/vending-machine-kata#vending-machine-kata)
 
-### Option 1: Configuration Management
+### Option 1:[Configuration Management](https://docs.google.com/document/d/1aXIFgDu9mDzCHpbjv4ybWAxWLcOneNqtih3WOrhRvIg/edit?usp=sharing)
 
 - [x] a: Install/configure the CM tool of your choice.
 - [ ] b: Automate the provisioning of a 3-tier web application stack (data layer, application layer, presentation
@@ -18,7 +19,7 @@ be managed in your environment; don&#39;t be surprised if someone proposes a cha
 one of the issues...  Your project should be complete as delivered, but every project has a &#39;next step&#39;
 and we&#39;d like to know what you think your next steps are.
 
-###Option 2: Continuous Integration/Deployment
+###Option 2: [Continuous Integration/Deployment](https://docs.google.com/document/d/1aXIFgDu9mDzCHpbjv4ybWAxWLcOneNqtih3WOrhRvIg/edit?usp=sharing)
 
 - [ ] a: Build a simple application with reasonable unit and/or integration tests; there really aren&#39;t any
 constraints here, but it should do something that we can see the results of.
