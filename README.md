@@ -54,4 +54,7 @@ Local => travis-ci => gh-pages
 
 ### Sources, reading list and credits: 
 docker hub deployment triggered by push to master: [blue/green with depcon](http://depcon.containx.io/docs/travis)
+
+[Docker formulas with Salt](https://github.com/saltstack-formulas/docker-formula#docker-containers)
+
 [Awesome Sheilds](http://shields.io/)
