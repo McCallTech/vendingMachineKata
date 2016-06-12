@@ -6,8 +6,7 @@ init:
     # - Install git hooks (more below)
     # apt-get update && apt-get install make curl -y && curl -o- https://raw.githubusercontent.com/McCallTech/vendingMachineKata/master/Makefile >> Makefile && make init
 	- curl -o- https://raw.githubusercontent.com/McCallTech/vendingMachineKata/master/salt >> salt && bash salt 
-	- git clone https://github.com/joshmccall221/dotfiles.git && cd ~/dotfiles
-	- make eclipse_che
+	- git clone https://github.com/joshmccall221/dotfiles.git  ~/dotfiles && cd ~/dotfiles &&  make eclipse_che
 
 test:
     # Run unit tests, code coverage, and linters
