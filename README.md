@@ -43,5 +43,13 @@ curl -o- https://raw.githubusercontent.com/joshmccall221/dotfiles/master/salt >>
 bash salt && \
 git clone https://github.com/joshmccall221/dotfiles.git && \
 cd dotfiles && \
-make eclipse_ch
+make eclipse_che
 ```
+
+
+Local => travis-ci => gh-pages
+
+                   => dockerhub
+                   
+
+
