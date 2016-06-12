@@ -62,7 +62,7 @@ RUN cd /home/user && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NO
 EXPOSE 3000 5000 8080 9000
 RUN sudo npm install -g npm@latest
 
-RUN sudo sudo git clone https://github.com/McCallTech/vendingMachineKata.git /vendingMachineKata && chown user:user /vendingMachineKata && cd /vendingMachineKata && npm install -g webpack-dev-server && npm install
+RUN sudo sudo git clone https://github.com/McCallTech/vendingMachineKata.git /vendingMachineKata && sudo chown user:user /vendingMachineKata && cd /vendingMachineKata && sudo npm install -g webpack-dev-server && npm install
 WORKDIR /projects
 
 CMD webpack-dev-server
