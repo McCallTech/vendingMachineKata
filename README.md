@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/McCallTech/vendingMachineKata.svg?branch=master)](https://travis-ci.org/McCallTech/vendingMachineKata) 
 [![Gh-Pages](https://img.shields.io/badge/gh--pages-Deployment%20courtesy%20of%20Travis--CI-green.svg)](http://mccalltech.github.io/vendingMachineKata/)
-[![Tello Kanban Board](https://img.shields.io/badge/Trello-kanban-blue.svg))](https://trello.com/b/QMrfegFm/kata)
+[![Tello Kanban Board](https://img.shields.io/badge/Trello-kanban-blue.svg)](https://trello.com/b/QMrfegFm/kata)
 #Kata:
 Culmination of a couple of Kata exercises. 
 #### Dev Option 1: [Vending Machine Kata](https://github.com/guyroyse/vending-machine-kata#vending-machine-kata)
