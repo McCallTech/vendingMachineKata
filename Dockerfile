@@ -16,13 +16,12 @@ FROM codenvy/debian_jre
 ENV NODE_VERSION=4.3.1 \
     NODE_PATH=/usr/local/lib/node_modules
     
-RUN sudo apt-get update && \
-    sudo apt-get -y install build-essential libssl-dev libkrb5-dev gcc make ruby-full rubygems && \
-    sudo gem install sass compass && \
-    sudo apt-get clean && \
-    sudo apt-get -y autoremove && \
-    sudo apt-get -y clean && \
-    sudo rm -rf /var/lib/apt/lists/* && \
+#RUN sudo apt-get update && \
+#    sudo apt-get -y install build-essential libssl-dev libkrb5-dev gcc make ruby-full rubygems && \
+#    sudo apt-get clean && \
+#    sudo apt-get -y autoremove && \
+#    sudo apt-get -y clean && \
+#    sudo rm -rf /var/lib/apt/lists/* && \
 
 
 
