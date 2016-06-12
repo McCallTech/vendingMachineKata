@@ -45,7 +45,6 @@ EXPOSE 3000 5000 8080 9000
 RUN sudo npm install -g npm@latest
 
 RUN sudo git clone https://github.com/McCallTech/vendingMachineKata.git /vendingMachineKata \ 
-&& rm -rf /projects/* \
 && sudo git clone https://github.com/McCallTech/vendingMachineKata.git /projects/vendingMachineKata \
 && sudo chown user:user /vendingMachineKata 
 
