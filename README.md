@@ -59,4 +59,6 @@ Local => travis-ci => gh-pages
 
 [Docker Cheat Sheet](https://github.com/wsargent/docker-cheat-sheet)
 
+[Docker exec] (https://docs.docker.com/engine/reference/commandline/exec/)
+
 [Awesome Sheilds](http://shields.io/)
