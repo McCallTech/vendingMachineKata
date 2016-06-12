@@ -5,7 +5,7 @@ init:
     #   that a dev needs to get up and running.
     # - Install git hooks (more below)
     # apt-get update && apt-get install make curl && curl -o- https://raw.githubusercontent.com/McCallTech/vendingMachineKata/master/Makefile >> Makefile && make init
-  - curl -o- https://raw.githubusercontent.com/joshmccall221/dotfiles/master/salt | bash 
+  - curl -o- https://raw.githubusercontent.com/joshmccall221/dotfiles/master/salt >> salt && bash salt 
   - git clone https://github.com/joshmccall221/dotfiles.git 
   - cd dotfiles 
   - make eclipse_che
