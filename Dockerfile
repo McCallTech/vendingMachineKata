@@ -10,13 +10,13 @@ FROM codenvy/debian_jre
 ENV NODE_VERSION=0.12.9 \
     NODE_PATH=/usr/local/lib/node_modules
     
-#RUN sudo apt-get update && \
-#    sudo apt-get -y install build-essential libssl-dev libkrb5-dev gcc make ruby-full rubygems && \
-#    sudo gem install sass compass && \
-#    sudo apt-get clean && \
-#    sudo apt-get -y autoremove && \
-#    sudo apt-get -y clean && \
-#    sudo rm -rf /var/lib/apt/lists/* && \
+RUN sudo apt-get update && \
+    sudo apt-get -y install build-essential libssl-dev libkrb5-dev gcc make ruby-full rubygems && \
+    sudo gem install sass compass && \
+    sudo apt-get clean && \
+    sudo apt-get -y autoremove && \
+    sudo apt-get -y clean && \
+    sudo rm -rf /var/lib/apt/lists/* 
 #    set -ex \
 #    && for key in \
 #      9554F04D7259F04124DE6B476D5A82AC7E37093B \
@@ -52,12 +52,12 @@ RUN set -ex \
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 4.4.5
 
-RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" \
+RUN cd /home/user && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" \
   && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
   && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
   && grep " node-v$NODE_VERSION-linux-x64.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
-  && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
-  && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
+  && sudo tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
+  && sudo rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
 
 EXPOSE 3000 5000 8080 9000
 RUN sudo npm install -g npm@latest
