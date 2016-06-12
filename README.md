@@ -20,13 +20,13 @@ and we&#39;d like to know what you think your next steps are.
 
 ###Option 2: Continuous Integration/Deployment
 
-- [ ] d: Build a simple application with reasonable unit and/or integration tests; there really aren&#39;t any
+- [ ] a: Build a simple application with reasonable unit and/or integration tests; there really aren&#39;t any
 constraints here, but it should do something that we can see the results of.
 
-- [ ] d: Configure a Continuous Integration solution to monitor a Version Control System and execute the unit
+- [ ] b: Configure a Continuous Integration solution to monitor a Version Control System and execute the unit
 and/or integration tests when new commits are made.
 
-- [ ] d: Provide us with access to your RCS and identify a few issues that represent the next features to be
+- [ ] c: Provide us with access to your RCS and identify a few issues that represent the next features to be
 delivered in your application; don&#39;t be surprised if someone commits a change that addresses one of
 the issues...  Your project should be complete as delivered, but every project has a &#39;next step&#39; and
 we&#39;d like to know what you think your next steps are.
