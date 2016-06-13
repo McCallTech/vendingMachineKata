@@ -161,6 +161,8 @@ after_success:
 [dockerSwarm](https://github.com/vfarcic/docker-swarm-blue-green)
 
 [dockerSwarm](https://technologyconversations.com/2015/11/25/deploying-containers-with-docker-swarm-and-docker-networking/)
+
+[dockerSwarm generic driver (docker-machine create on linux)](https://docs.docker.com/machine/drivers/generic/)
 ##### Container:
 [Docker hub deployment: github, travis, dockerhub (blue/green with depcon)](http://depcon.containx.io/docs/travis)
 
