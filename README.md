@@ -145,6 +145,8 @@ after_success:
 
 
 #### Sources, reading list and credits: 
+### Agile Board: 
+[huboard](https://huboard.com/McCallTech/vendingMachineKata/#/)
 ### CM: 
 [Linode peformance with low tier memory](https://www.centos.org/docs/5/html/5.2/Deployment_Guide/s2-swap-creating-file.html)
 
