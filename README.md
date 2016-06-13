@@ -36,15 +36,50 @@ successful and notify the Software Engineer when CI fails.
 
 #Solution:
 ### Linode Ubuntu 14.04
+#### Specs:  
+- linode 1024 or lindoe 4096   
+#### CM
+- linodes stack scripts are run when server is (re)built
 ```
-apt-get update && apt-get install curl -y && curl -o- https://raw.githubusercontent.com/joshmccall221/dotfiles/master/salt | bash && git clone https://github.com/joshmccall221/dotfiles.git && cd dotfiles && make eclipse_che
+#!/bin/bash 
+apt-get update && \
+apt-get install make curl -y && \
+cd ~ && \
+curl -o- https://raw.githubusercontent.com/McCallTech/vendingMachineKata/master/Makefile > ~/Makefile && make init
+
 ```
+- Makefile
+  - make init && make start_kataDocker
+    - Spins up eclipse che and pulls joshmccall221/vendingMachineDocker to server on port 80
+    - Eclipse Che : ${linode.ip}:8080
+    - vendingMachineKata :  ${linode.ip}
+```
+init:
+	- curl -o- https://raw.githubusercontent.com/McCallTech/vendingMachineKata/master/salt >> salt && bash salt 
+	- git clone https://github.com/joshmccall221/dotfiles.git  ~/dotfiles && cd ~/dotfiles &&  make eclipse_che && make start_kataDocker 
 
+```
+- Salt
+  - 
+  ```
+#Add key   
+wget -O - https://repo.saltstack.com/apt/ubuntu/14.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -
+echo 'deb http://repo.saltstack.com/apt/ubuntu/14.04/amd64/latest trusty main ' >> /etc/apt/sources.list.d/salt.list
+#Install salt
+sudo apt-get update -y
+sudo apt-get install salt-minion -y
+#use salt to bootstrap system
+salt-call --local pkg.install git make vim tmux ack-grep 
 
-Local => travis-ci => gh-pages
+#Use salt formula to install docker
+mkdir /srv/salt
+cd /srv/salt/
+git clone https://github.com/saltstack-formulas/docker-formula.git
+cp -R ./docker-formula/docker/ .
+salt-call --local state.sls docker
+  ```
+  
 
-                   => dockerhub
-                   
 
 #### Sources, reading list and credits: 
 ##### CM: 
