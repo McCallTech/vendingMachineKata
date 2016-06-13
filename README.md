@@ -80,7 +80,7 @@ git clone https://github.com/saltstack-formulas/docker-formula.git
 cp -R ./docker-formula/docker/ .
 salt-call --local state.sls docker
   ```
-- Dev ENV: 
+- Development Environment: 
 	- Local
 	- http://beta.codenvy.com/
 	- ${linode.ip):8080 (eclipse che)
