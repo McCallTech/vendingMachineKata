@@ -188,3 +188,16 @@ after_success:
 
 ##### Fun
 [I swapped my MacBook for an iPad+Linode](http://yieldthought.com/post/12239282034/swapped-my-macbook-for-an-ipad)
+
+### Screen shots: 
+#### Docker pulled from joshmccall221/vendingmachinekata running in codenvy with passing test and serving from web-pack-dev-server:
+
+![Passing_Test_Hi_Momma](Passing_Test_Hi_Momma_Blue.png)
+
+#### Travis-CI deployed to gh-pages and docker:
+
+![gh-pages_linode](gh-pages_linode.png)
+
+#### Github, Travis-CI, Docker hub: 
+
+![github_travis_docker_hub](github_travis_docker_hub.png)
