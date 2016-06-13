@@ -35,10 +35,10 @@ we&#39;d like to know what you think your next steps are.
 successful and notify the Software Engineer when CI fails.
 
 #Solution:
+## DevOps: CM
 ### Linode Ubuntu 14.04
 #### Specs:  
 - linode 1024 or lindoe 4096   
-#### CM
 - linodes stack scripts are run when server is (re)built
 ```
 #!/bin/bash 
@@ -82,7 +82,7 @@ salt-call --local state.sls docker
 
 
 #### Sources, reading list and credits: 
-##### CM: 
+### CM: 
 [Linode peformance with low tier memory](https://www.centos.org/docs/5/html/5.2/Deployment_Guide/s2-swap-creating-file.html)
 
 ##### Deployment: 
