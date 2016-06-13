@@ -105,6 +105,7 @@ salt-call --local state.sls docker
 		- locally
 		- codenvy
 		- Any VPS
+	- All cloud based means laptop / chromebook / ipad development :)
 	
 ## DevOps Option 2: CI
 ##### github:
@@ -152,7 +153,10 @@ after_success:
 
 ##### Deployment: 
 [Docker Blue/Green](https://botleg.com/stories/blue-green-deployment-with-docker/)
-
+[consul](https://hub.docker.com/r/progrium/consul/)
+[blueGreen](https://github.com/nicferrier/docker-shell-deploy)
+[dockerSwarm](https://github.com/vfarcic/docker-swarm-blue-green)
+[dockerSwarm](https://technologyconversations.com/2015/11/25/deploying-containers-with-docker-swarm-and-docker-networking/)
 ##### Container:
 [Docker hub deployment: github, travis, dockerhub (blue/green with depcon)](http://depcon.containx.io/docs/travis)
 
