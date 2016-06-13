@@ -53,7 +53,7 @@ successful and notify the Software Engineer when CI fails.
 ### Linode Ubuntu 14.04
 #### Specs (linode 1024 or lindoe 4096):   
 #####  StackScripts / Bash
-	- Linodes custom scripts are run when server is (re)built
+- Linodes custom scripts are run when server is (re)built
 ```
 #!/bin/bash 
 apt-get update && \
@@ -63,10 +63,10 @@ curl -o- https://raw.githubusercontent.com/McCallTech/vendingMachineKata/master/
 
 ```
 ##### Makefile
-  - make init && make start_kataDocker
-    - Spins up eclipse che and pulls joshmccall221/vendingMachineDocker to server on port 80
-    - Eclipse Che : ${linode.ip}:8080
-    - vendingMachineKata :  ${linode.ip}
+- make init && make start_kataDocker
+	- Spins up eclipse che and pulls joshmccall221/vendingMachineDocker to server on port 80
+	- Eclipse Che : ${linode.ip}:8080
+	- vendingMachineKata :  ${linode.ip}
 ```
 init:
 	- curl -o- https://raw.githubusercontent.com/McCallTech/vendingMachineKata/master/salt >> salt && bash salt 
@@ -93,30 +93,30 @@ cp -R ./docker-formula/docker/ .
 salt-call --local state.sls docker
   ```
 ##### Development Environment: 
-	- Local
-	- http://beta.codenvy.com/
-	- ${linode.ip):8080 (eclipse che)
+- Local
+- http://beta.codenvy.com/
+- ${linode.ip):8080 (eclipse che)
 ##### Eclipse Che
-	- conainer based (docker) cloude ide 
-	- Open source version of codenvy [more info]( https://codenvy.com/product/technology/)
+- conainer based (docker) cloude ide 
+- Open source version of codenvy [more info]( https://codenvy.com/product/technology/)
 	
-##### Docker(joshmccall221/vendingmachinekata)
-	- can be run:
-		- locally
-		- codenvy
-		- Any VPS
-	- All cloud based means laptop / chromebook / ipad development :)
+##### Docker (joshmccall221/vendingmachinekata)
+- can be run:
+	- locally
+	- codenvy
+	- Any VPS
+- All cloud based means laptop / chromebook / ipad development :)
 	
 ## DevOps Option 2: CI
 ##### github:
 	- push to master triggers travis-ci build
 ##### travis-ci: 
-	- runs npm test
-	- builds docker file
-	- after_success
-		- deploys to github pages
-		- push to docker hub
-	- Notifies via email either success or failure
+- runs npm test
+- builds docker file
+- after_success
+	- deploys to github pages
+	- push to docker hub
+- Notifies via email either success or failure
 ```
 language: node_js
 
@@ -153,9 +153,13 @@ after_success:
 
 ##### Deployment: 
 [Docker Blue/Green](https://botleg.com/stories/blue-green-deployment-with-docker/)
+
 [consul](https://hub.docker.com/r/progrium/consul/)
+
 [blueGreen](https://github.com/nicferrier/docker-shell-deploy)
+
 [dockerSwarm](https://github.com/vfarcic/docker-swarm-blue-green)
+
 [dockerSwarm](https://technologyconversations.com/2015/11/25/deploying-containers-with-docker-swarm-and-docker-networking/)
 ##### Container:
 [Docker hub deployment: github, travis, dockerhub (blue/green with depcon)](http://depcon.containx.io/docs/travis)
