@@ -47,7 +47,7 @@ successful and notify the Software Engineer when CI fails.
 
 #Solution:
 ## Dev Option 1: vendingMachineKata (node/react/webpack)
-*note*: current state, only starter version for use in CM/CI 
+*note*: current state, only starter version for use in CM/CI (to be continued ...)
 
 ## DevOps Option 1: CM
 ### Linode Ubuntu 14.04
