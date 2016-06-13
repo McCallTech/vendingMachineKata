@@ -13,8 +13,7 @@ The repo also contains the configuration managment needed to (re)build a linode 
 
 This project also includes:
 - ScrumBan board: [ScrumBan Board](https://huboard.com/McCallTech/vendingMachineKata/#/)
-- codenvy factory link: [codenvy](http://beta.codenvy.com/f?name=kata&user=joshmccall221)
-
+- codenvy factory link: [![codenvy](https://img.shields.io/badge/Codenvy%20Factory-Click%20to%20launch%20cloud%20instance-brightgreen.svg)](http://beta.codenvy.com/f?name=kata&user=joshmccall221)
 
 ##Kata:
 #### Dev Option 1: [Vending Machine Kata](https://github.com/guyroyse/vending-machine-kata#vending-machine-kata)
