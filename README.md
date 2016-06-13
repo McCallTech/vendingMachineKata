@@ -6,9 +6,6 @@
 # Dev | DevOps: CM | DevOps: CI
 
 
-## Technology choices explained / Motivation
-
-Culmination of a couple of Kata exercises. 
 ##Kata:
 #### Dev Option 1: [Vending Machine Kata](https://github.com/guyroyse/vending-machine-kata#vending-machine-kata)
 
@@ -170,6 +167,8 @@ after_success:
 [dockerSwarm](https://technologyconversations.com/2015/11/25/deploying-containers-with-docker-swarm-and-docker-networking/)
 
 [dockerSwarm generic driver (docker-machine create on linux)](https://docs.docker.com/machine/drivers/generic/)
+
+[docker deep dive (generic driver)] (https://blog.docker.com/2015/06/docker-machine-0-3-0-deep-dive/)
 ##### Container:
 [Docker hub deployment: github, travis, dockerhub (blue/green with depcon)](http://depcon.containx.io/docs/travis)
 
@@ -180,3 +179,6 @@ after_success:
 [Docker exec] (https://docs.docker.com/engine/reference/commandline/exec/)
 ##### GitHub:
 [Awesome Sheilds](http://shields.io/)
+
+##### Fun
+[I swapped my MacBook for an iPad+Linode](http://yieldthought.com/post/12239282034/swapped-my-macbook-for-an-ipad)
