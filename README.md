@@ -5,6 +5,10 @@
 
 # Dev | DevOps: CM | DevOps: CI
 
+This kata utilizes containerized environments to run a development environment locally, on your own cloud hosted VPS, or with a service like codenvy / koding. The docker container is bootstrapped with node v4.4.5 and mounts the node repo to /vendingMachineKata. Committing and pushing to master triggers a travis-ci build task that test your app and on success deploys to github and and pushes to docker hub. Travis-ci buid status can be seen on your github repo and Travis-ci will notify you via email on success / failure of build. 
+
+The repo also contains the configuration managment needed to (re)build a linode vps with bash, makefiles, salt and docker. On boot the Linode VPS will take a base Ubuntu 14.04 image and set up the dependancies needed to automatically run the Eclipse Che container (port 8080) and the node app container ( on port 80). Linode can then be used as a developement environment, a host for Eclipse Che (development environment manager) or can host the deployed app which can be connected to via ssh for development inside the docker container. Auto redeploy scripts that update the docker containers with minimal down time. 
+
 
 ##Kata:
 #### Dev Option 1: [Vending Machine Kata](https://github.com/guyroyse/vending-machine-kata#vending-machine-kata)
@@ -29,6 +33,7 @@ and we&#39;d like to know what you think your next steps are.
 		- DevOps CI: Local or containerized travis-ci
 		- DevOps CM: utilize salt for scaling beyond one node.
 		- DevOps CM: docker swarm for scaling 
+		- DevOps CM: run CaptianHooks for api endpoints to trigger deployment lifecycles 
 
 #### DevOps Option 2: [Continuous Integration/Deployment](https://docs.google.com/document/d/1aXIFgDu9mDzCHpbjv4ybWAxWLcOneNqtih3WOrhRvIg/edit?usp=sharing)
 
@@ -103,6 +108,7 @@ salt-call --local state.sls docker
 ##### Eclipse Che
 - conainer based (docker) cloude ide 
 - Open source version of codenvy [more info]( https://codenvy.com/product/technology/)
+- Swagger api for creating users/workspaces/projects
 	
 ##### Docker (joshmccall221/vendingmachinekata)
 - can be run:
