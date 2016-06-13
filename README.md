@@ -40,7 +40,7 @@ successful and notify the Software Engineer when CI fails.
 ## DevOps Option 1: CM
 ### Linode Ubuntu 14.04
 #### Specs (linode 1024 or lindoe 4096):   
-- StackScripts / Bash
+#####  StackScripts / Bash
 	- Linodes custom scripts are run when server is (re)built
 ```
 #!/bin/bash 
@@ -50,7 +50,7 @@ cd ~ && \
 curl -o- https://raw.githubusercontent.com/McCallTech/vendingMachineKata/master/Makefile > ~/Makefile && make init
 
 ```
-- Makefile
+##### Makefile
   - make init && make start_kataDocker
     - Spins up eclipse che and pulls joshmccall221/vendingMachineDocker to server on port 80
     - Eclipse Che : ${linode.ip}:8080
@@ -61,7 +61,7 @@ init:
 	- git clone https://github.com/joshmccall221/dotfiles.git  ~/dotfiles && cd ~/dotfiles &&  make eclipse_che && make start_kataDocker 
 
 ```
-- Salt
+##### Salt
   - 
   ```
 #Add key   
@@ -80,24 +80,24 @@ git clone https://github.com/saltstack-formulas/docker-formula.git
 cp -R ./docker-formula/docker/ .
 salt-call --local state.sls docker
   ```
-- Development Environment: 
+##### Development Environment: 
 	- Local
 	- http://beta.codenvy.com/
 	- ${linode.ip):8080 (eclipse che)
-- Eclipse Che
+##### Eclipse Che
 	- conainer based (docker) cloude ide 
 	- Open source version of codenvy [more info]( https://codenvy.com/product/technology/)
 	
-- Docker(joshmccall221/vendingmachinekata)
+##### Docker(joshmccall221/vendingmachinekata)
 	- can be run:
 		- locally
 		- codenvy
 		- Any VPS
 	
 ## DevOps Option 2: CI
-- github:
+##### github:
 	- push to master triggers travis-ci build
-- travis-ci: 
+##### travis-ci: 
 	- runs npm test
 	- builds docker file
 	- after_success
