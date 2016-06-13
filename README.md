@@ -34,11 +34,14 @@ we&#39;d like to know what you think your next steps are.
 successful and notify the Software Engineer when CI fails.
 
 #Solution:
-## DevOps: CM
+## Dev Option 1: vendingMachineKata (node/react/webpack)
+*note*: current state, only starter version for use in CM/CI 
+
+## DevOps Option 1: CM
 ### Linode Ubuntu 14.04
-#### Specs:  
-- linode 1024 or lindoe 4096   
-- linodes stack scripts are run when server is (re)built
+#### Specs (linode 1024 or lindoe 4096):   
+- StackScripts / Bash
+	- Linodes custom scripts are run when server is (re)built
 ```
 #!/bin/bash 
 apt-get update && \
@@ -77,7 +80,55 @@ git clone https://github.com/saltstack-formulas/docker-formula.git
 cp -R ./docker-formula/docker/ .
 salt-call --local state.sls docker
   ```
+- Dev ENV: 
+	- Local
+	- http://beta.codenvy.com/
+	- ${linode.ip):8080 (eclipse che)
+- Eclipse Che
+	- conainer based (docker) cloude ide 
+	- Open source version of codenvy [more info]( https://codenvy.com/product/technology/)
+	
+- Docker(joshmccall221/vendingmachinekata)
+	- can be run:
+		- locally
+		- codenvy
+		- Any VPS
+	
+## DevOps Option 2: CI
+- github:
+	- push to master triggers travis-ci build
+- travis-ci: 
+	- runs npm test
+	- builds docker file
+	- after_success
+		- deploys to github pages
+		- push to docker hub
+```
+language: node_js
+
+node_js:
+- '4.4.3'
+services:
+  - docker
+script: 
+  - npm install
+  - npm test
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker build -t joshmccall221/vendingmachinekata .
+  - docker tag joshmccall221/vendingmachinekata joshmccall221/vendingmachinekata:$TRAVIS_BUILD_NUMBER
+  - docker run -d -p 127.0.0.1:80:80 --name vendingmachinekata joshmccall221/vendingmachinekata:$TRAVIS_BUILD_NUMBER
+  - docker ps | grep -q vendingmachinekata 
   
+after_success:
+  - webpack
+  - chmod a+x deploy-ghpages.sh
+  - npm run-script deploy
+  - docker push joshmccall221/vendingmachinekata
+  - docker push joshmccall221/vendingmachinekata:$TRAVIS_BUILD_NUMBER
+
+```
+
+
 
 
 #### Sources, reading list and credits: 
