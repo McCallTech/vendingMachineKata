@@ -48,6 +48,6 @@ RUN sudo git clone https://github.com/McCallTech/vendingMachineKata.git /vending
 && sudo git clone https://github.com/McCallTech/vendingMachineKata.git /projects/vendingMachineKata \
 && sudo chown user:user /vendingMachineKata 
 
-WORKDIR /projects/vendingMachineKata
+WORKDIR /projects/
 
 CMD  tail -f /dev/null
