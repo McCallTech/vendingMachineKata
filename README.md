@@ -8,9 +8,8 @@ Culmination of a couple of Kata exercises.
 #### DevOps Option 1:[Configuration Management](https://docs.google.com/document/d/1aXIFgDu9mDzCHpbjv4ybWAxWLcOneNqtih3WOrhRvIg/edit?usp=sharing)
 
 - [x] a: Install/configure the CM tool of your choice.
-- [ ] b: Automate the provisioning of a 3-tier web application stack (data layer, application layer, presentation
-layer). An example stack might be, but is in no way limited to, redis/passenger/nginx. 
-- [ ] c: Automate the deployment of a simple &#39;ping&#39; page that establishes that each of the 3 layers in the stack
+- [x] b: Automate the provisioning of a web application stack. An example stack might be, but is in no way limited to, redis/passenger/nginx. 
+- [x] c: Automate the deployment of a simple &#39;ping&#39; page that establishes that each of the 3 layers in the stack
 are available.
 
 - [ ] d: Provide us with access to your RCS and identify a few issues that represent the next configurations to
