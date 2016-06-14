@@ -40,8 +40,7 @@ RUN sudo apt-get update && \
     sudo git clone https://github.com/McCallTech/vendingMachineKata.git /vendingMachineKata  && \ 
     sudo git clone https://github.com/McCallTech/vendingMachineKata.git /projects/vendingMachineKata  && \
     sudo chown -R user:user /vendingMachineKata  && \
-    git clone https://github.com/joshmccall221/dotfiles.git  && \
-    bash ~/dotfiles/symlink.sh
+    git clone https://github.com/joshmccall221/dotfiles.git  
   
 
 EXPOSE 3000 5000 8080 9000
