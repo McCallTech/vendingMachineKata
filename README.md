@@ -7,9 +7,21 @@
 
 # Dev | DevOps: CM | DevOps: CI
 
-This kata utilizes containerized environments to run a development environment locally, on your own cloud hosted VPS, or with a service like codenvy / koding. The docker container is bootstrapped with node v4.4.5 and mounts the node repo to /vendingMachineKata. Committing and pushing to master triggers a travis-ci build task that test your app and on success deploys to github pages and and pushes to docker hub. Travis-ci buid status can be seen on your github repo and Travis-ci will notify you via email on success / failure of build. 
+This kata utilizes containerized environments to run a development environment locally, on your own cloud hosted VPS, or with a service like codenvy / koding. 
+* The docker container is bootstrapped with node v4.4.5 and mounts the node repo to /vendingMachineKata. 
+* Committing and pushing to master triggers a travis-ci build task that tests your app.
+* On success, travis-ci deploys to github pages.
+* On success, travis-ci pushes to docker hub.
+* Buid status sheild from travis-ci can be seen on your github repo. 
+* Developer is notified via email on success / failure of buildTravis-ci. 
 
-The repo also contains the configuration managment needed to (re)build a linode vps with bash, makefiles, salt and docker. On boot the Linode VPS will take a base Ubuntu 14.04 image and set up the dependancies needed to automatically run the Eclipse Che container s(port 8080) and the node app container ( on port 80). Linode can then be used as a developement environment, a host for Eclipse Che (development environment manager) or can host the deployed app which can be connected to via ssh for development inside the docker container. Auto redeploy scripts that update the docker containers with minimal down time. 
+The repo also contains the configuration managment needed to (re)build a linode vps. 
+* On boot the Linode VPS will take a base Ubuntu 14.04 image 
+  * set up the dependancies needed (with bash, makefiles, salt and docker)
+  * automatically run the Eclipse Che container s(port 8080) 
+  * automatically run  the node app container ( on port 80) 
+
+Linode can then be used as a developement environment, a host for Eclipse Che (development environment manager) or can host the deployed app which can be connected to via ssh for development inside the docker container. Auto redeploy scripts that update the docker containers with minimal down time. 
 
 This project also includes:
 - ScrumBan board: [![Kanban Board](https://img.shields.io/badge/huboard-ScrumBan-blue.svg)](https://huboard.com/McCallTech/vendingMachineKata/#/)
