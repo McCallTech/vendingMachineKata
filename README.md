@@ -12,21 +12,22 @@ This kata utilizes containerized environments to run a development environment l
 * Committing and pushing to master triggers a travis-ci build task that tests your app.
   * On success, travis-ci deploys to github pages.
   * On success, travis-ci pushes to docker hub.
-* Buid status sheild from travis-ci can be seen on your github repo. 
+* Build status shield from travis-ci can be seen on your github repo. 
 * Developer is notified via email on success / failure of buildTravis-ci. 
 
-The repo also contains the configuration managment needed to (re)build a linode vps. 
+The repo also contains the configuration management needed to (re)build a linode vps. 
 * On boot the Linode VPS will take a base Ubuntu 14.04 image 
-  * set up the dependancies needed (with bash, makefiles, salt and docker)
+  * set up the dependencies needed (with bash, makefiles, salt and docker)
   * automatically run the Eclipse Che container s(port 8080) 
   * automatically run  the node app container ( on port 80) 
 
-Linode can then be used as a developement environment, a host for Eclipse Che (development environment manager) or can host the deployed app which can be connected to via ssh for development inside the docker container. Auto redeploy scripts that update the docker containers with minimal down time. 
+Linode can then be used as a development environment, a host for Eclipse Che (development environment manager) or can host the deployed app which can be connected to via ssh for development inside the docker container. Auto deploy scripts that update the docker containers with minimal down time. 
 
 This project also includes:
 - ScrumBan board: [![Kanban Board](https://img.shields.io/badge/huboard-ScrumBan-blue.svg)](https://huboard.com/McCallTech/vendingMachineKata/#/)
 
 - codenvy factory link: [![codenvy](https://img.shields.io/badge/Codenvy%20Factory-Click%20to%20launch%20cloud%20instance-brightgreen.svg)](http://beta.codenvy.com/f?name=kata&user=joshmccall221)
+  - *note:* you will need a codeny account (OAuth signup available  
 
 ##Kata:
 #### Dev Option 1: [Vending Machine Kata](https://github.com/guyroyse/vending-machine-kata#vending-machine-kata)
@@ -35,15 +36,15 @@ This project also includes:
 
 - [x] a: Install/configure the CM tool of your choice.
 	- Bash / Makefiles / Salt / Docker 
-- [x] b: Automate the provisioning of a web application stack. An example stack might be, but is in no way limited to, redis/passenger/nginx. 
-	- Lindoe (VPS host)  / Docker (serves app/webserver) 
+- [x] b: Automate the provisioning of a web application stack. An example stack might be, but is in no way limited to, redis/passenger/nginx. 
+	- Linode (VPS host)  / Docker (serves app/webserver) 
 - [x] c: Automate the deployment of a simple &#39;ping&#39; page that establishes that each of the 3 layers in the stack
 are available.
 	- Deployment of Linode triggers auto CM, pulls latest docker and serves it over port 80
 
 - [x] d: Provide us with access to your RCS and identify a few issues that represent the next configurations to
 be managed in your environment; don&#39;t be surprised if someone proposes a change that addresses
-one of the issues...  Your project should be complete as delivered, but every project has a &#39;next step&#39;
+one of the issues...  Your project should be complete as delivered, but every project has a &#39;next step&#39;
 and we&#39;d like to know what you think your next steps are.
 	- Next steps:
 		- DevOps CI: Working cron job triggering a docker pull / stop / remove / run. This has minimal downtime but I would like to flush out blue green deploy strategy that does not rely on a service (aws/dockerhub/digital Ocean).  
@@ -53,7 +54,7 @@ and we&#39;d like to know what you think your next steps are.
 		- DevOps CM: docker swarm for scaling 
 		- DevOps CM: run CaptianHooks for api endpoints to trigger deployment lifecycles 
 
-#### DevOps Option 2: [Continuous Integration/Deployment](https://docs.google.com/document/d/1aXIFgDu9mDzCHpbjv4ybWAxWLcOneNqtih3WOrhRvIg/edit?usp=sharing)
+#### DevOps Option 2: [Continuous Integration/Deployment](https://docs.google.com/document/d/1aXIFgDu9mDzCHpbjv4ybWAxWLcOneNqtih3WOrhRvIg/edit?usp=sharing)
 
 - [x] a: Build a simple application with reasonable unit and/or integration tests; there really aren&#39;t any
 constraints here, but it should do something that we can see the results of.
@@ -61,11 +62,11 @@ constraints here, but it should do something that we can see the results of.
 
 - [x] b: Configure a Continuous Integration solution to monitor a Version Control System and execute the unit
 and/or integration tests when new commits are made.
-	- git pust master triggers travis-ci that builds and runs test. After success travis-ci runs github pages deploy, docker hub push. 
+	- git push master triggers travis-ci that builds and runs test. After success travis-ci runs github pages deploy, docker hub push. 
 
 - [x] c: Provide us with access to your RCS and identify a few issues that represent the next features to be
 delivered in your application; don&#39;t be surprised if someone commits a change that addresses one of
-the issues...  Your project should be complete as delivered, but every project has a &#39;next step&#39; and
+the issues...  Your project should be complete as delivered, but every project has a &#39;next step&#39; and
 we&#39;d like to know what you think your next steps are.
 
 - [x] d: Configure a Continuous Deployment solution to automatically deploy the application when CI is
@@ -124,7 +125,7 @@ salt-call --local state.sls docker
 - http://beta.codenvy.com/
 - ${linode.ip):8080 (eclipse che)
 ##### Eclipse Che
-- conainer based (docker) cloude ide 
+- container based (docker) cloud ide 
 - Open source version of codenvy [more info]( https://codenvy.com/product/technology/)
 - Swagger api for creating users/workspaces/projects
 	
@@ -140,7 +141,7 @@ salt-call --local state.sls docker
 	- push to master triggers travis-ci build
 ##### travis-ci: 
 - runs npm test
-- builds docker file
+- builds dockerfile
 - after_success
 	- deploys to github pages
 	- push to docker hub
@@ -212,7 +213,7 @@ after_success:
 
 ![Passing_Test_Hi_Momma](Passing_Test_Hi_Momma_Blue.png)
 
-####ScrumBanScrumBan
+####ScrumBan
 
 ![ScrumBanScrumBan](ScrumBan.png)
 
@@ -223,3 +224,5 @@ after_success:
 #### Github, Travis-CI, Docker hub: 
 
 ![github_travis_docker_hub](github_travis_docker_hub.png)
+
+
