@@ -10,8 +10,8 @@
 This kata utilizes containerized environments to run a development environment locally, on your own cloud hosted VPS, or with a service like codenvy / koding. 
 * The docker container is bootstrapped with node v4.4.5 and mounts the node repo to /vendingMachineKata. 
 * Committing and pushing to master triggers a travis-ci build task that tests your app.
-* On success, travis-ci deploys to github pages.
-* On success, travis-ci pushes to docker hub.
+  * On success, travis-ci deploys to github pages.
+  * On success, travis-ci pushes to docker hub.
 * Buid status sheild from travis-ci can be seen on your github repo. 
 * Developer is notified via email on success / failure of buildTravis-ci. 
 
