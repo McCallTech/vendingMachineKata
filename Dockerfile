@@ -39,15 +39,16 @@ RUN cd /home/user && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NO
   && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
   && grep " node-v$NODE_VERSION-linux-x64.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
   && sudo tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
-  && sudo rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
+  && sudo rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
+  && sudo git clone https://github.com/McCallTech/vendingMachineKata.git /vendingMachineKata \ 
+  && sudo git clone https://github.com/McCallTech/vendingMachineKata.git /projects/vendingMachineKata \
+  && sudo chown -R user:user /vendingMachineKata \
+  && git clone https://github.com/joshmccall221/dotfiles.git 
+  
 
 EXPOSE 3000 5000 8080 9000
 RUN sudo npm install -g npm@latest
 
-RUN sudo git clone https://github.com/McCallTech/vendingMachineKata.git /vendingMachineKata \ 
-&& sudo git clone https://github.com/McCallTech/vendingMachineKata.git /projects/vendingMachineKata \
-&& sudo chown user:user /vendingMachineKata 
-
-WORKDIR /projects/
+WORKDIR /vendingMachineKata/
 
 CMD  tail -f /dev/null
