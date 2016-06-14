@@ -1,5 +1,5 @@
 
-[![Build Status](https://travis-ci.org/McCallTech/vendingMachineKata.svg?branch=master)](https://travis-ci.org/McCallTech/vendingMachineKata) 
+[![Build Status](https://travis-ci.org/McCallTech/vendingMachineKata.svg?branch=master)](https://travis-ci.org/McCallTech/vendingMachineKata/builds) 
 [![Gh-Pages](https://img.shields.io/badge/gh--pages-Deployment%20courtesy%20of%20Travis--CI-green.svg)](http://mccalltech.github.io/vendingMachineKata/)
 [![Kanban Board](https://img.shields.io/badge/huboard-ScrumBan-blue.svg)](https://huboard.com/McCallTech/vendingMachineKata/#/)
 [![codenvy](https://img.shields.io/badge/Codenvy-Better%20Agile%20Experience-brightgreen.svg)](https://codenvy.com/)
@@ -12,7 +12,8 @@ This kata utilizes containerized environments to run a development environment l
 The repo also contains the configuration managment needed to (re)build a linode vps with bash, makefiles, salt and docker. On boot the Linode VPS will take a base Ubuntu 14.04 image and set up the dependancies needed to automatically run the Eclipse Che container s(port 8080) and the node app container ( on port 80). Linode can then be used as a developement environment, a host for Eclipse Che (development environment manager) or can host the deployed app which can be connected to via ssh for development inside the docker container. Auto redeploy scripts that update the docker containers with minimal down time. 
 
 This project also includes:
-- ScrumBan board: [ScrumBan Board](https://huboard.com/McCallTech/vendingMachineKata/#/)
+- ScrumBan board: [![Kanban Board](https://img.shields.io/badge/huboard-ScrumBan-blue.svg)](https://huboard.com/McCallTech/vendingMachineKata/#/)
+
 - codenvy factory link: [![codenvy](https://img.shields.io/badge/Codenvy%20Factory-Click%20to%20launch%20cloud%20instance-brightgreen.svg)](http://beta.codenvy.com/f?name=kata&user=joshmccall221)
 
 ##Kata:
