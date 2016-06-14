@@ -17,6 +17,9 @@ package:
 dev:
     # Start up a development server or process e.g. `vagrant up` or `node server.js`
     # Bonus: open that page in the user's browser automatically
+    - bash ~/dotfiles/symlink.sh
+    - sudo rm -rf /projects/*
+    - ln -s /vendingMachineKata /projects/vendingMachineKata
 install:
     # If your project builds an executable, place it in the `$PATH`.
     # E.g. copy or symlink it into `/usr/local/bin`
