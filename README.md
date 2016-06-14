@@ -7,6 +7,7 @@
 
 # Dev | DevOps: CM | DevOps: CI
 
+
 This kata utilizes containerized environments to run a development environment locally, on your own cloud hosted VPS, or with a service like codenvy / koding. 
 * The docker container is bootstrapped with node v4.4.5 and mounts the node repo to /vendingMachineKata. 
 * Committing and pushing to master triggers a travis-ci build task that tests your app.
