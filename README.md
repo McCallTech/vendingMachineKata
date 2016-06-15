@@ -31,29 +31,38 @@ This project also includes:
   - *note:* you will need a codeny account (OAuth signup available  
 
 ##Kata:
-#### Dev Option 1: [Vending Machine Kata](https://github.com/guyroyse/vending-machine-kata#vending-machine-kata)
+#### Dev Option 1: [Vending Machine Kata](https://github.com/guyroyse/vending-machine-kata#vending-machine-kata) 
+*note*: current state, only starter version for use in CM/CI (to be continued ...)
+- (node/react/webpack)
 
 #### DevOps Option 1:[Configuration Management](https://docs.google.com/document/d/1aXIFgDu9mDzCHpbjv4ybWAxWLcOneNqtih3WOrhRvIg/edit?usp=sharing)
+###### Linode Ubuntu 14.04 (linode 1024 or lindoe 4096):
+###### Linodes custom scripts are run when server is (re)built [Stack script is one-liner kept in git (last line of comment make init)](https://github.com/McCallTech/vendingMachineKata/blob/master/Makefile)
 
-- [x] a: Install/configure the CM tool of your choice.
-	- Bash / Makefiles / Salt / Docker 
-- [x] b: Automate the provisioning of a web application stack. An example stack might be, but is in no way limited to, redis/passenger/nginx. 
-	- Linode (VPS host)  / Docker (serves app/webserver) 
-- [x] c: Automate the deployment of a simple &#39;ping&#39; page that establishes that each of the 3 layers in the stack
+  - [x] a: Install/configure the CM tool of your choice.
+  	  - Bash / Makefiles / Salt / Docker 
+  - [x] b: Automate the provisioning of a web application stack. An example stack might be, but is in no way limited to, redis/passenger/nginx. 
+ 	  - Linode (VPS host)  / Docker (serves app/webserver) 
+  - [x] c: Automate the deployment of a simple &#39;ping&#39; page that establishes that each of the 3 layers in the stack
 are available.
-	- Deployment of Linode triggers auto CM, pulls latest docker and serves it over port 80
+	  - Deployment of Linode triggers auto CM, pulls latest docker and serves it over port 80
 
-- [x] d: Provide us with access to your RCS and identify a few issues that represent the next configurations to
+###### Makefile
+	- make init && make start_kataDocker
+	- Spins up eclipse che and pulls joshmccall221/vendingMachineDocker to server on port 80
+	- Eclipse Che : ${linode.ip}:8080
+	- vendingMachineKata :  ${linode.ip}
+  - [x] d: Provide us with access to your RCS and identify a few issues that represent the next configurations to
 be managed in your environment; don&#39;t be surprised if someone proposes a change that addresses
 one of the issues...  Your project should be complete as delivered, but every project has a &#39;next step&#39;
 and we&#39;d like to know what you think your next steps are.
-	- Next steps:
-		- DevOps CI: Working cron job triggering a docker pull / stop / remove / run. This has minimal downtime but I would like to flush out blue green deploy strategy that does not rely on a service (aws/dockerhub/digital Ocean).  
-		- DevOps CI: Travis CI currently builds after every push. Limiting to only code files and tagged commits would better optimize resources. 
-		- DevOps CI: Local or containerized travis-ci
-		- DevOps CM: utilize salt for scaling beyond one node.
-		- DevOps CM: docker swarm for scaling 
-		- DevOps CM: run CaptianHooks for api endpoints to trigger deployment lifecycles 
+	  - Next steps:
+		  - DevOps CI: Working cron job triggering a docker pull / stop / remove / run. This has minimal downtime but I would like to flush out blue green deploy strategy that does not rely on a service (aws/dockerhub/digital Ocean).  
+		  - DevOps CI: Travis CI currently builds after every push. Limiting to only code files and tagged commits would better optimize resources. 
+		  - DevOps CI: Local or containerized travis-ci
+		  - DevOps CM: utilize salt for scaling beyond one node.
+		  - DevOps CM: docker swarm for scaling 
+		  - DevOps CM: run CaptianHooks for api endpoints to trigger deployment lifecycles 
 
 #### DevOps Option 2: [Continuous Integration/Deployment](https://docs.google.com/document/d/1aXIFgDu9mDzCHpbjv4ybWAxWLcOneNqtih3WOrhRvIg/edit?usp=sharing)
 
@@ -75,8 +84,7 @@ successful and notify the Software Engineer when CI fails.
 	- Push to master triggers travis-ci job and docker build, both of which run test. 
 
 #Solution:
-## Dev Option 1: vendingMachineKata (node/react/webpack)
-*note*: current state, only starter version for use in CM/CI (to be continued ...)
+## Dev Option 1: vendingMachineKata 
 
 ## DevOps Option 1: CM
 ### Linode Ubuntu 14.04
