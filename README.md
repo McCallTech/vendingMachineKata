@@ -210,6 +210,10 @@ after_success:
 [I swapped my MacBook for an iPad+Linode](http://yieldthought.com/post/12239282034/swapped-my-macbook-for-an-ipad)
 
 ### Screen shots: 
+#### Mind Map of Process:
+![mindMap](coggle.png)
+
+
 #### Docker pulled from joshmccall221/vendingmachinekata running in codenvy with passing test and serving from web-pack-dev-server:
 
 ![Passing_Test_Hi_Momma](Passing_Test_Hi_Momma_Blue.png)
