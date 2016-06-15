@@ -210,7 +210,8 @@ after_success:
 [I swapped my MacBook for an iPad+Linode](http://yieldthought.com/post/12239282034/swapped-my-macbook-for-an-ipad)
 
 ### Screen shots: 
-#### Mind Map of Process:
+#### Mind Map of Process: [Coggle Mind Map](https://coggle.it/diagram/V2C9679aPuILY9Zp/8b11fc6fd8123cbcd4685bf46d328c8f7ce5293d6c07ff8544984af138db763a)
+
 ![mindMap](coggle.png)
 
 
