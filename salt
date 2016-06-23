@@ -5,9 +5,9 @@
 wget -O - https://repo.saltstack.com/apt/ubuntu/14.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -
 echo 'deb http://repo.saltstack.com/apt/ubuntu/14.04/amd64/latest trusty main ' >> /etc/apt/sources.list.d/salt.list
 
-sudo apt-get update -y
+sudo apt-get update --force-yes -y
 
-sudo apt-get install salt-minion -y
+sudo apt-get install salt-minion --force-yes -y
 
 salt-call --local pkg.install git 
 salt-call --local pkg.install make 
