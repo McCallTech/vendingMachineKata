@@ -2,14 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react-addons-test-utils';
 import {findWithType, findWithClass} from 'react-shallow-testutils';
-import {expect} from 'chai';
+import {assert, expect} from 'chai';
 
 import VendingMachine from '../../src/components/vending-machine';
 
 let expectedProps ={
         containerDiv : {
             container_class: 'container-div',
-            style: {width:'50%',backgroundColor:'black'}
+            style: {margin:'auto', width:'90%',backgroundColor:'gray'}
+        },
+        display: {
+            defaultMessage:'INSERT COIN'
         }    
     };
 
@@ -17,7 +20,10 @@ const renderer = ReactTestUtils.createRenderer(),
       tree = renderer.render(<VendingMachine {...expectedProps}/>),
       {className, children, style} = tree.props;
 
-        console.log(tree);
+      let [display] = children;
+
+console.log('display:');
+console.log(display);
 
 
 describe.only('Vending Machine Kata component is rendered:', () => {
@@ -25,6 +31,7 @@ describe.only('Vending Machine Kata component is rendered:', () => {
         expect(tree.type).to.eql('div');
         expect(className).to.eql('container-div');
         expect(style).to.eql(expectedProps.containerDiv.style);
+        assert(children.length > 0, 'to have children');
     });
     describe('Features',()=>{
         describe('Accepts Coins:',()=>{
@@ -34,7 +41,8 @@ describe.only('Vending Machine Kata component is rendered:', () => {
                         it('should accept valid coins (nickles, dimes, and quarters).',()=>{});
                         it('should reject invalid coins (pennies).',()=>{});
                         it('should display "INSERT COIN" when no coins are inserted',()=>{
-                            //expect(tree.length).to.eql(1);
+                            expect(display.type).to.eql('h1');
+                            expect(display.props.children).to.eql([ 'Display: ',expectedProps.display.defaultMessage]);
                         });
                         it('should update disply when valid coin is inserted.',()=>{});
                         it('should place rejected coins in coin return',()=>{});

@@ -3,14 +3,23 @@ console.log("Hello World!");
 import React from 'react';
 import ReactDOM from 'react-dom';
 import HiMom from './components/Hi-Mom';
-import VendingMachine from './components/vending-machine';
+import VendingMachineKata from './components/vending-machine';
 
-let expectedProps = {};
+
+let expectedProps ={
+        containerDiv : {
+            container_class: 'container-div',
+            style: {margin:'auto', width:'90%',backgroundColor:'gray'}
+        },
+        display: {
+            defaultMessage:'INSERT COIN'
+        }    
+    };
 
 let renderFunction = function (expectedProps) {
 
     return ReactDOM.render(
-        <div>VendingMachineKata</div>
+        <VendingMachineKata {...expectedProps}/>
     , document.getElementById('app'));
 }
 
