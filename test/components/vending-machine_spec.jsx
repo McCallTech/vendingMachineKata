@@ -1,20 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { 
-    renderIntoDocument,
-    scryRenderedDOMComponentsWithTag
-} from 'react-addons-test-utils';
+import ReactTestUtils from 'react-addons-test-utils';
+import {findWithType, findWithClass} from 'react-shallow-testutils';
 import {expect} from 'chai';
 
 import VendingMachine from '../../src/components/vending-machine';
 
-let expectedProps;
+let expectedProps ={
+        containerDiv : {
+            container_class: 'container-div',
+            style: {width:'50%',backgroundColor:'black'}
+        }    
+    };
+
+const renderer = ReactTestUtils.createRenderer(),
+      tree = renderer.render(<VendingMachine {...expectedProps}/>),
+      {className, children, style} = tree.props;
+
+        console.log(tree);
+
 
 describe.only('Vending Machine Kata component is rendered:', () => {
     it('should render a container div', () => {
-        const component = renderIntoDocument(<VendingMachine/>);
-        const divContainer = scryRenderedDOMComponentsWithTag(component, 'div');
-        expect(divContainer.length).to.eql(1);
+        expect(tree.type).to.eql('div');
+        expect(className).to.eql('container-div');
+        expect(style).to.eql(expectedProps.containerDiv.style);
     });
     describe('Features',()=>{
         describe('Accepts Coins:',()=>{
@@ -23,7 +33,9 @@ describe.only('Vending Machine Kata component is rendered:', () => {
                     describe('So that I can collect money from the customer.',()=>{
                         it('should accept valid coins (nickles, dimes, and quarters).',()=>{});
                         it('should reject invalid coins (pennies).',()=>{});
-                        it('should display "INSERT COIN" when no coins are inserted',()=>{});
+                        it('should display "INSERT COIN" when no coins are inserted',()=>{
+                            //expect(tree.length).to.eql(1);
+                        });
                         it('should update disply when valid coin is inserted.',()=>{});
                         it('should place rejected coins in coin return',()=>{});
                         it('TODO',()=>{});
