@@ -13,14 +13,15 @@ let expectedProps ={
         },
         display: {
             defaultMessage:'INSERT COIN'
-        }    
+        },
+        products: [{cola: '100'},{chips: '150'}, {candy: '65'}]    
     };
 
 const renderer = ReactTestUtils.createRenderer(),
       tree = renderer.render(<VendingMachine {...expectedProps}/>),
       {className, children, style} = tree.props;
 
-      let [display] = children;
+      let [display,product] = children;
 
 console.log('display:');
 console.log(display);
@@ -56,6 +57,7 @@ describe.only('Vending Machine Kata component is rendered:', () => {
                 describe('I want customers to select products.',()=>{
                     describe('So that I can collect money from the customer',()=>{
                         it('should display three products [{cola: $1.00},{chips: $1.50}, {candy: $0.65}]',()=>{});
+                            expect(product.type).to.eql('div');
                         it('should despense product and display "Thank YOU" given enough money.',()=>{});
                         it('should diplay "INSERT COIN" and set current ammount back to $0.00 when display is checked again.',()=>{});
                         it('should display PRICE and the price of the item if there is not enough money inserted, subsequent checks of the display will display either INSERT COIN or the current amount as appropriate.',()=>{});

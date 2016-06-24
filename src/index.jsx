@@ -13,7 +13,8 @@ let expectedProps ={
         },
         display: {
             defaultMessage:'INSERT COIN'
-        }    
+        },
+        products: [{name:'cola',price: '100'},{name:'chips', price:  '150'}, {name:'candy', price: '65'}]    
     };
 
 let renderFunction = function (expectedProps) {

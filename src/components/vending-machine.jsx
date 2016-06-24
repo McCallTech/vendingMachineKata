@@ -4,7 +4,7 @@ export default React.createClass({
     
     render: function() {
 
-        let {containerDiv, display} = this.props,
+        let {containerDiv, display, products} = this.props,
             {container_class, style} = containerDiv,
             {defaultMessage} = display;
         return <div 
@@ -12,7 +12,12 @@ export default React.createClass({
                    style={style}
                 >
                    <h1>Display: {defaultMessage}</h1>
-                   <div></div>
+                   <div>Product: Price</div>
+                    {products.map(p=>{
+                        return <span>
+                            <div> {p.name}: {p.price}</div>
+                        </span>
+                    })}
         </div>
     }
 });
