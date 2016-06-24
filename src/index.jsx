@@ -3,15 +3,15 @@ console.log("Hello World!");
 import React from 'react';
 import ReactDOM from 'react-dom';
 import HiMom from './components/Hi-Mom';
+import VendingMachine from './components/vending-machine';
 
-let expectedProps = {
-    className: 'hi-mom',
-    text : 'Hello Momma!!!'
-};
+let expectedProps = {};
 
+let renderFunction = function (expectedProps) {
 
+    return ReactDOM.render(
+        <div>VendingMachineKata</div>
+    , document.getElementById('app'));
+}
 
-ReactDOM.render(
-  <HiMom {...expectedProps}/>,
-  document.getElementById('app')
-);
+renderFunction(expectedProps);
