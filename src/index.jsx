@@ -6,6 +6,7 @@ import HiMom from './components/Hi-Mom';
 import VendingMachineKata from './components/vending-machine';
 
 
+
 let expectedProps ={
         rootContainer: {
             props : {
@@ -20,10 +21,39 @@ let expectedProps ={
             props : {
                 css_class: 'products-div',
             },
-            products: [{cola: '100'},{chips: '150'}, {candy: '65'}]    
+            products: [{'name': 'cola' , 'price': '100'},
+                       {'name': 'chips', 'price': '150'}, 
+                       {'name': 'candy', 'price': '65'}]    
+        },
+        coinContainer:{
+            validCoins: [
+                {'name'     : 'Quater',
+                 'value'    : '25',
+                 'weight'   : '',
+                 'radius'   : ''},
+                {'name'     : 'Dime',
+                 'value'    : '10',
+                 'weight'   : '',
+                 'radius'   : ''},
+                {'name'     : 'Nickel',
+                 'value'    : '5',
+                 'weight'   : '',
+                 'radius'   : ''}
+            ],
+            invalidCoins: [
+                {'name'     : 'Quater',
+                 'value'    : '25',
+                 'weight'   : '',
+                 'radius'   : ''},
+            ]
+        },
+        clickHandler:  function(){
+            console.log('clickHandler')
+            renderFunction(
+                Object.assign( {}, expectedProps, {displayContainer:{defaultMessage:'Hi Mom!!!'}})
+            );
         }
     };
-
 
 let renderFunction = function (expectedProps) {
 

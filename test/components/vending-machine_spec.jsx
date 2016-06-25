@@ -20,18 +20,42 @@ let expectedProps ={
             props : {
                 css_class: 'products-div',
             },
-            products: [{cola: '100'},{chips: '150'}, {candy: '65'}]    
+            products: [{'name': 'cola' , 'price': '100'},
+                       {'name': 'chips', 'price': '150'}, 
+                       {'name': 'candy', 'price': '65'}]    
+        },
+        coinContainer:{
+            validCoins: [
+                {'name'     : 'Quater',
+                 'value'    : '25',
+                 'weight'   : '',
+                 'radius'   : ''},
+                {'name'     : 'Dime',
+                 'value'    : '10',
+                 'weight'   : '',
+                 'radius'   : ''},
+                {'name'     : 'Nickel',
+                 'value'    : '5',
+                 'weight'   : '',
+                 'radius'   : ''}
+            ],
+            invalidCoins: [
+                {'name'     : 'Quater',
+                 'value'    : '25',
+                 'weight'   : '',
+                 'radius'   : ''},
+            ]
         }
     };
 
 const renderer  = ReactTestUtils.createRenderer(),
       tree      = renderer.render(<VendingMachine {...expectedProps}/>),
 
-      {props : {className, children, style}}      = tree, // <=== multi-level destructuring!!!!  see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-      [displayContainer, product]       = children,
+      {props : {className, children, style}}    = tree, // <=== multi-level destructuring!!!!  see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+      [displayContainer, product]               = children,
 
       {type  :   displayContainerType, 
-       props :   displayContainerProps} = displayContainer;
+       props :   displayContainerProps}         = displayContainer;
 
 
 
@@ -65,8 +89,8 @@ describe.only('Vending Machine Kata component is rendered:', () => {
                 describe('I want customers to select products.',()=>{
                     describe('So that I can collect money from the customer',()=>{
                         it('should display three products [{cola: $1.00},{chips: $1.50}, {candy: $0.65}]',()=>{});
-                        console.log(product.props);
-                            expect(product.type).to.eql('div');
+                            //console.log(product.props);
+                            //expect(product.type).to.eql('div');
                             //expect(product.props).to.eql(expectedProps.productContainer);
                         it('should despense product and display "Thank YOU" given enough money.',()=>{});
                         it('should diplay "INSERT COIN" and set current ammount back to $0.00 when display is checked again.',()=>{});
