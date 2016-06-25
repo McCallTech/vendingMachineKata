@@ -7,31 +7,39 @@ import {assert, expect} from 'chai';
 import VendingMachine from '../../src/components/vending-machine';
 
 let expectedProps ={
-        containerDiv : {
-            container_class: 'container-div',
-            style: {margin:'auto', width:'90%',backgroundColor:'gray'}
+        rootContainer: {
+            props : {
+                css_class: 'container-div',
+                style: {margin:'auto', width:'90%',backgroundColor:'gray'}
+            },
         },
-        display: {
+        displayContainer: {
             defaultMessage:'INSERT COIN'
         },
-        products: [{cola: '100'},{chips: '150'}, {candy: '65'}]    
+        productsContainer:{
+            props : {
+                css_class: 'products-div',
+            },
+            products: [{cola: '100'},{chips: '150'}, {candy: '65'}]    
+        }
     };
 
-const renderer = ReactTestUtils.createRenderer(),
-      tree = renderer.render(<VendingMachine {...expectedProps}/>),
-      {className, children, style} = tree.props;
+const renderer  = ReactTestUtils.createRenderer(),
+      tree      = renderer.render(<VendingMachine {...expectedProps}/>),
 
-      let [display,product] = children;
+      {props : {className, children, style}}      = tree, // <=== multi-level destructuring!!!!  see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+      [displayContainer, product]       = children,
 
-console.log('display:');
-console.log(display);
+      {type  :   displayContainerType, 
+       props :   displayContainerProps} = displayContainer;
+
 
 
 describe.only('Vending Machine Kata component is rendered:', () => {
     it('should render a container div', () => {
         expect(tree.type).to.eql('div');
         expect(className).to.eql('container-div');
-        expect(style).to.eql(expectedProps.containerDiv.style);
+        expect(style).to.eql(expectedProps.rootContainer.props.style);
         assert(children.length > 0, 'to have children');
     });
     describe('Features',()=>{
@@ -42,8 +50,8 @@ describe.only('Vending Machine Kata component is rendered:', () => {
                         it('should accept valid coins (nickles, dimes, and quarters).',()=>{});
                         it('should reject invalid coins (pennies).',()=>{});
                         it('should display "INSERT COIN" when no coins are inserted',()=>{
-                            expect(display.type).to.eql('h1');
-                            expect(display.props.children).to.eql([ 'Display: ',expectedProps.display.defaultMessage]);
+                            expect(displayContainerType).to.eql('h1');
+                            expect(displayContainerProps.children).to.eql([ 'Display: ', expectedProps.displayContainer.defaultMessage]);
                         });
                         it('should update disply when valid coin is inserted.',()=>{});
                         it('should place rejected coins in coin return',()=>{});
@@ -57,7 +65,9 @@ describe.only('Vending Machine Kata component is rendered:', () => {
                 describe('I want customers to select products.',()=>{
                     describe('So that I can collect money from the customer',()=>{
                         it('should display three products [{cola: $1.00},{chips: $1.50}, {candy: $0.65}]',()=>{});
+                        console.log(product.props);
                             expect(product.type).to.eql('div');
+                            //expect(product.props).to.eql(expectedProps.productContainer);
                         it('should despense product and display "Thank YOU" given enough money.',()=>{});
                         it('should diplay "INSERT COIN" and set current ammount back to $0.00 when display is checked again.',()=>{});
                         it('should display PRICE and the price of the item if there is not enough money inserted, subsequent checks of the display will display either INSERT COIN or the current amount as appropriate.',()=>{});
