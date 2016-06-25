@@ -7,15 +7,23 @@ import VendingMachineKata from './components/vending-machine';
 
 
 let expectedProps ={
-        containerDiv : {
-            container_class: 'container-div',
-            style: {margin:'auto', width:'90%',backgroundColor:'gray'}
+        rootContainer: {
+            props : {
+                css_class: 'container-div',
+                style: {margin:'auto', width:'90%',backgroundColor:'gray'}
+            },
         },
-        display: {
+        displayContainer: {
             defaultMessage:'INSERT COIN'
         },
-        products: [{name:'cola',price: '100'},{name:'chips', price:  '150'}, {name:'candy', price: '65'}]    
+        productsContainer:{
+            props : {
+                css_class: 'products-div',
+            },
+            products: [{cola: '100'},{chips: '150'}, {candy: '65'}]    
+        }
     };
+
 
 let renderFunction = function (expectedProps) {
 
