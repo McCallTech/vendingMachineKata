@@ -23,11 +23,28 @@ export default React.createClass({
                        style: displayContainerStyle}}           = displayContainer,
 
             { validCoins,
-                invalidCoins }  = coinContainer;
+                invalidCoins,
+                props:{css_class: coinContainerClassName,
+                       style: coinContainerStyle} }  = coinContainer;
         return (
             <div className={root_css_class} style={root_style}>
                 <section className={displayContainerClassName} style={displayContainerStyle}><h4>Display: {defaultMessage}</h4></section>
-                <section></section>
+                <section className="coins-container" style={coinContainerStyle}>
+                    {validCoins.map((vc,i) =>{
+                        return <button 
+                            key={i}
+                            style={{width:'100%'}}
+                            onClick={this.props.clickHandler.bind(this,['coin', {name:vc.name, weight: vc.weight, diameter: vc.diameter}])}
+                        >{vc.name}</button>
+                    })}
+                    {invalidCoins.map((ivc,i) =>{
+                        return <button 
+                            key={i}
+                            style={{width:'100%'}}
+                            onClick={this.props.clickHandler.bind(this,{name:ivc.name, weight: ivc.weight, diameter: ivc.diameter})}
+                        >{ivc.name}</button>
+                    })}
+                </section>
                 <div></div>
             </div>
         );

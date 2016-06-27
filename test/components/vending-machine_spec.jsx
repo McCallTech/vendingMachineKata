@@ -33,6 +33,10 @@ let expectedProps ={
                        {'name': 'candy', 'price': '0.65'}]    
         },
         coinContainer:{
+            props : {
+                css_class: 'coins-container',
+                style: {float:'left', width:'45%', padding: '15px'}
+            },
             validCoins: [
                 {'name'     : 'Quater',
                  'value'    : '25',
@@ -53,14 +57,6 @@ let expectedProps ={
                  'weight'   : '2.500',
                  'diameter' : '19.05'},
             ]
-        },
-        productClickHandler:  function(){
-        },
-        clearClickHandler:  function(){
-            renderFunction(
-                Object.assign( {}, expectedProps )
-            );
-
         },
         clickHandler:  function(reducer){
 
@@ -151,7 +147,8 @@ const renderer  = ReactTestUtils.createRenderer(),
 
    const {
        rootContainer   :{props:{css_class:expected_root_css_class, style: expected_root_style }},  
-       displayContainer:{props:{css_class:expected_display_css_class, style: expected_display_style }}  
+       displayContainer:{props:{css_class:expected_display_css_class, style: expected_display_style }},  
+       coinContainer   :{props:{css_class:expected_coinContainer_css_class, style: expected_coinContainer_style }}  
    } = expectedProps
 
 describe.only('Vending Machine Kata component is rendered:', () => {
@@ -168,10 +165,13 @@ describe.only('Vending Machine Kata component is rendered:', () => {
                     describe('So that I can collect money from the customer.',()=>{
                         it('should accept valid coins (nickles, dimes, and quarters).',()=>{});
                             expect(coinContainerType).to.eql('section');
-                            //expect(coinContainerType).to.eql('section');
+                            expect(coinContainer.props.style).to.eql(expectedProps.coinContainer.props.style);
+                            expect(coinContainer.props.className).to.eql(expectedProps.coinContainer.props.css_class);
+                            coinContainer.props.children[0].map(b =>{
+                                expect(b.type).to.eql('button');
+                            });
                         it('should reject invalid coins (pennies).',()=>{});
                         it('should display "INSERT COIN" when no coins are inserted',()=>{
-                            //console.log(displayContainer);
                             expect(displayContainerType).to.eql('section');
                             expect(displayContainer.props.style).to.eql(expected_display_style);
                             expect(displayContainer.props.className).to.eql(expected_display_css_class);
@@ -189,9 +189,6 @@ describe.only('Vending Machine Kata component is rendered:', () => {
                 describe('I want customers to select products.',()=>{
                     describe('So that I can collect money from the customer',()=>{
                         it('should display three products [{cola: $1.00},{chips: $1.50}, {candy: $0.65}]',()=>{});
-                            //console.log(product.props);
-                            //expect(product.type).to.eql('div');
-                            //expect(product.props).to.eql(expectedProps.productContainer);
                         it('should despense product and display "Thank YOU" given enough money.',()=>{});
                         it('should diplay "INSERT COIN" and set current ammount back to $0.00 when display is checked again.',()=>{});
                         it('should display PRICE and the price of the item if there is not enough money inserted, subsequent checks of the display will display either INSERT COIN or the current amount as appropriate.',()=>{});
