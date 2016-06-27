@@ -142,8 +142,8 @@ const renderer  = ReactTestUtils.createRenderer(),
       {type      : coinContainerType } = coinContainer,
       {type      : displayContainerType, 
        className : displayContainerClassName,
-       stle      : displayContainerStyle,
-       props     : {children:  {props: {children: insert_coin}}}} = displayContainer;
+       stle      : displayContainerStyle} = displayContainer,
+       [insertCoin, balance, selectedProduct, vend] = displayContainer.props.children;
 
    const {
        rootContainer   :{props:{css_class:expected_root_css_class, style: expected_root_style }},  
@@ -175,7 +175,15 @@ describe.only('Vending Machine Kata component is rendered:', () => {
                             expect(displayContainerType).to.eql('section');
                             expect(displayContainer.props.style).to.eql(expected_display_style);
                             expect(displayContainer.props.className).to.eql(expected_display_css_class);
-                            expect(insert_coin).to.eql(['Display: ',expectedProps.displayContainer.defaultMessage]);
+                            expect(insertCoin.type).to.eql('h4');
+                            expect(insertCoin.props.children).to.eql(['Display: ',expectedProps.displayContainer.defaultMessage]);
+                            expect(balance.type).to.eql('div');
+                            expect(balance.props.children).to.eql([ 'Balance: $', '0.00' ]);
+                            expect(selectedProduct.type).to.eql('div');
+                            expect(selectedProduct.props.children).to.eql([ 'Selected Product: ', 'NONE' ]);
+                            expect(vend.type).to.eql('div');
+                            expect(vend.props.children).to.eql([ 'CoinReturn: $', '0.00' ]);
+ 
                         });
                         it('should update disply when valid coin is inserted.',()=>{});
                         it('should place rejected coins in coin return',()=>{});

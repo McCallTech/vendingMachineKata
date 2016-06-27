@@ -28,7 +28,13 @@ export default React.createClass({
                        style: coinContainerStyle} }  = coinContainer;
         return (
             <div className={root_css_class} style={root_style}>
-                <section className={displayContainerClassName} style={displayContainerStyle}><h4>Display: {defaultMessage}</h4></section>
+            <section className={displayContainerClassName} style={displayContainerStyle}>
+                <h4>Display: {defaultMessage}</h4>
+                <div>Balance: ${balance}</div>
+                <div>Selected Product: {selectedProduct}</div>
+                <div>CoinReturn: ${coinReturn}</div>
+                <div>Vend: {vend}</div>
+            </section>
                 <section className={coinContainerClassName} style={coinContainerStyle}>
                     {validCoins.map((vc,i) =>{
                         return <button 
