@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom';
 import HiMom from './components/Hi-Mom';
 import VendingMachineKata from './components/vending-machine';
 
-
 let expectedProps ={
         rootContainer: {
             props : {
@@ -14,10 +13,7 @@ let expectedProps ={
             },
         },
         displayContainer: {
-            props : {
-                css_class: 'display-container',
-                style: {float:'left', width:'45%', padding: '15px'}
-            },
+            props : { css_class: 'display-container', style: {float:'left', width:'45%', padding: '15px'} },
             defaultMessage:'INSERT COIN',
             balance: '0.00',
             selectedProduct: 'NONE', 
@@ -58,6 +54,7 @@ let expectedProps ={
                  'diameter' : '19.05'},
             ]
         },
+
         clickHandler:  function(reducer){
 
             var [action, object] = reducer,
@@ -68,6 +65,7 @@ let expectedProps ={
                             case '5.670':
                                 update = {
                                     displayContainer:{
+                                        props : { css_class: 'display-container', style: {float:'left', width:'45%', padding: '15px'} },
                                         balance: (Number(this.props.displayContainer.balance) + 0.25 ).toFixed(2) ,   
                                         selectedProduct: this.props.displayContainer.selectedProduct, 
                                         defaultMessage:this.props.displayContainer.defaultMessage,
@@ -78,6 +76,7 @@ let expectedProps ={
                             case '2.268':
                                 update = {
                                     displayContainer:{
+                                        props : { css_class: 'display-container', style: {float:'left', width:'45%', padding: '15px'} },
                                         balance: (Number(this.props.displayContainer.balance) + 0.10 ).toFixed(2) ,  
                                         selectedProduct: this.props.displayContainer.selectedProduct, 
                                         defaultMessage:this.props.displayContainer.defaultMessage,
@@ -88,6 +87,7 @@ let expectedProps ={
                             case '5.000':
                                 update = {
                                     displayContainer:{
+                                        props : { css_class: 'display-container', style: {float:'left', width:'45%', padding: '15px'} },
                                         balance: (Number(this.props.displayContainer.balance) + 0.05).toFixed(2) , 
                                         selectedProduct: this.props.displayContainer.selectedProduct, 
                                         defaultMessage:this.props.displayContainer.defaultMessage,
@@ -99,9 +99,12 @@ let expectedProps ={
                                 console.log('COIN RETURN !!!!!');
                                 update = {
                                     displayContainer:{
+                                        props : { css_class: 'display-container', style: {float:'left', width:'45%', padding: '15px'} },
                                         balance: (Number(this.props.displayContainer.balance) ).toFixed(2) , 
                                         selectedProduct: this.props.displayContainer.selectedProduct, 
-                                        defaultMessage:this.props.displayContainer.defaultMessage}
+                                        defaultMessage:this.props.displayContainer.defaultMessage,
+                                        coinReturn: this.props.displayContainer.coinReturn, 
+                                        vend: this.props.displayContainer.vend }
                                 };
                         }
                         break;
@@ -109,6 +112,7 @@ let expectedProps ={
                         console.log('###############Product');
                         update = {
                             displayContainer:{
+                                props : { css_class: 'display-container', style: {float:'left', width:'45%', padding: '15px'} },
                                 balance: (Number(this.props.displayContainer.balance) ).toFixed(2) , 
                                 selectedProduct: object.product, 
                                 defaultMessage:this.props.displayContainer.defaultMessage,
@@ -117,7 +121,6 @@ let expectedProps ={
                         };
                         break;
                     case 'clear':
-                        break;
                     default:
                         console.log('------------outer default');
                 }
