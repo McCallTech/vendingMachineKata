@@ -5,6 +5,13 @@
 ![chromebook](https://img.shields.io/badge/Chromebook%20Approved-100%25-green.svg)
 
 # Dev | DevOps: CM | DevOps: CI
+### Dev Kata:
+- Kata Repo: https://github.com/guyroyse/vending-machine-kata#vending-machine-kata
+- Code Repo: https://github.com/McCallTech/vendingMachineKata
+- gh-pages: http://mccalltech.github.io/vendingMachineKata/
+- Spike view: http://45.79.139.210:8080/ 
+  - (warning: live dev server, may be broken or actively changing)
+
 ####Notable Features: 
 - Live Reload
 - TDD (mocha/chi/shallow rending)
