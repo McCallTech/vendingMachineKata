@@ -15,42 +15,120 @@ let expectedProps ={
             },
         },
         displayContainer: {
-            defaultMessage:'INSERT COIN'
+            defaultMessage:'INSERT COIN',
+            balance: '0.00',
+            selectedProduct: 'NONE', 
+            coinReturn:'0.00',
+            vend: 'EMPTY'
         },
         productsContainer:{
             props : {
                 css_class: 'products-div',
             },
-            products: [{'name': 'cola' , 'price': '100'},
-                       {'name': 'chips', 'price': '150'}, 
-                       {'name': 'candy', 'price': '65'}]    
+            products: [{'name': 'cola' , 'price': '1.00'},
+                       {'name': 'chips', 'price': '1.50'}, 
+                       {'name': 'candy', 'price': '0.65'}]    
         },
         coinContainer:{
             validCoins: [
                 {'name'     : 'Quater',
                  'value'    : '25',
-                 'weight'   : '',
-                 'radius'   : ''},
+                 'weight'   : '5.670',
+                 'diameter' : '24.26'},
                 {'name'     : 'Dime',
                  'value'    : '10',
-                 'weight'   : '',
-                 'radius'   : ''},
+                 'weight'   : '2.268',
+                 'diameter' : '17.91'},
                 {'name'     : 'Nickel',
                  'value'    : '5',
-                 'weight'   : '',
-                 'radius'   : ''}
+                 'weight'   : '5.000',
+                 'diameter' : '21.21'}
             ],
             invalidCoins: [
-                {'name'     : 'Quater',
-                 'value'    : '25',
-                 'weight'   : '',
-                 'radius'   : ''},
+                {'name'     : 'Pennies',
+                 'value'    : '.01',
+                 'weight'   : '2.500',
+                 'diameter' : '19.05'},
             ]
         },
-        clickHandler:  function(){
-            console.log('clickHandler')
+        productClickHandler:  function(){
+        },
+        clearClickHandler:  function(){
             renderFunction(
-                Object.assign( {}, expectedProps, {displayContainer:{defaultMessage:'Hi Mom!!!'}})
+                Object.assign( {}, expectedProps )
+            );
+
+        },
+        clickHandler:  function(reducer){
+
+            var [action, object] = reducer,
+                update;
+                switch(action){
+                    case 'coin':
+                        switch(object.weight){
+                            case '5.670':
+                                update = {
+                                    displayContainer:{
+                                        balance: (Number(this.props.displayContainer.balance) + 0.25 ).toFixed(2) ,   
+                                        selectedProduct: this.props.displayContainer.selectedProduct, 
+                                        defaultMessage:this.props.displayContainer.defaultMessage,
+                                        coinReturn: this.props.displayContainer.coinReturn, 
+                                        vend: this.props.displayContainer.vend }
+                                };
+                                break;
+                            case '2.268':
+                                update = {
+                                    displayContainer:{
+                                        balance: (Number(this.props.displayContainer.balance) + 0.10 ).toFixed(2) ,  
+                                        selectedProduct: this.props.displayContainer.selectedProduct, 
+                                        defaultMessage:this.props.displayContainer.defaultMessage,
+                                        coinReturn: this.props.displayContainer.coinReturn, 
+                                        vend: this.props.displayContainer.vend }
+                                };
+                                break;
+                            case '5.000':
+                                update = {
+                                    displayContainer:{
+                                        balance: (Number(this.props.displayContainer.balance) + 0.05).toFixed(2) , 
+                                        selectedProduct: this.props.displayContainer.selectedProduct, 
+                                        defaultMessage:this.props.displayContainer.defaultMessage,
+                                        coinReturn: this.props.displayContainer.coinReturn, 
+                                        vend: this.props.displayContainer.vend }
+                                };
+                                break;
+                            default:
+                                console.log('COIN RETURN !!!!!');
+                                update = {
+                                    displayContainer:{
+                                        balance: (Number(this.props.displayContainer.balance) ).toFixed(2) , 
+                                        selectedProduct: this.props.displayContainer.selectedProduct, 
+                                        defaultMessage:this.props.displayContainer.defaultMessage}
+                                };
+                        }
+                        break;
+                    case 'product':
+                        console.log('###############Product');
+                        update = {
+                            displayContainer:{
+                                balance: (Number(this.props.displayContainer.balance) ).toFixed(2) , 
+                                selectedProduct: object.product, 
+                                defaultMessage:this.props.displayContainer.defaultMessage,
+                                coinReturn: this.props.displayContainer.coinReturn, 
+                                vend: this.props.displayContainer.vend }
+                        };
+                        break;
+                    case 'clear':
+                        break;
+                    default:
+                        console.log('------------outer default');
+                }
+            console.log('coinClickHandler:');
+            console.log('coin info: https://www.usmint.gov/about_the_mint/?action=coin_specifications');
+            console.log('-------------+\n'+ new Date().getTime());
+            console.log(object);
+
+            renderFunction(
+                Object.assign( {}, expectedProps, update )
             );
         }
     };

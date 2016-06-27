@@ -14,44 +14,59 @@ export default React.createClass({
 
             {props: {css_class: product_css_class},
                 products}                   = productsContainer,
-            {defaultMessage}                = displayContainer,
+            {defaultMessage, balance, selectedProduct, coinReturn, vend}       = displayContainer,
             {
                 validCoins,
                 invalidCoins
             }                               = coinContainer;
 
         return (
-            <div 
-               className={root_css_class}
-               style={style}
-            >
-                <h1>Display: {defaultMessage}</h1>
-
-
-
-
-                <section style={{float:'left'}}>
-                    <div className="products-div" style={{float:'left', margin: '15px'}}>
-                        Product:
+            <div className={root_css_class} style={style} >
+                <section className="products-container" style={{float:'left', width: '50%', height:'600px', border: '3px', backgroundColor:'#222'}}>
+                    <div className="products-div" style={{float:'left', padding: '15px', backgroundColor:'#999'}}>
+                    <div style={{width:'100%'}}>Product:Price</div>
                         {products.map((p,i) => {
-                            return <div key={i}>{p.name}</div>
-                        })}
-                    </div>
-                    <div className="price-div" style={{float:'left', margin: '15px'}}>
-                        Price:
-                        {products.map((p,i) => {
-                            return <div key={i}>{p.price}</div>
-
+                            return <button key={i} style={{width:'100%'}}
+                                onClick={this.props.clickHandler.bind(this,['product', {product:p.name, price: p.price}])}
+                            >
+                                <div className="product-div" style={{float:'left', padding: '15px', backgroundColor:'#888'}}>
+                                    {p.name}
+                                </div>
+                                <div className="price-div" style={{float:'right', padding: '15px', backgroundColor:'#888'}}>
+                                    ${p.price}
+                                </div>
+                            </button>
                         })}
                     </div>
                 </section>
-                <section style={{float:'left', width:'50px', margin: '15px'}}>
-                 {validCoins.map((vc,i) =>{
-                    return <button key={i}>{vc.name}</button>
-                })}
+                <section className="display-container" style={{float:'left', width:'45%', padding: '15px'}}>
+                    <h4>Display:  {defaultMessage}</h4>
+                    <div>Balance: ${balance}</div>
+                    <div>Selected Product: {selectedProduct}</div>
+                    <div>CoinReturn: ${coinReturn}</div>
+                    <div>Vend: {vend}</div>
                 </section>
-                <section style={{float:'left', width:'50px', margin: '15px'}}>
-                    <button onClick={this.props.clickHandler}>
+                <section className="coins-container" style={{float:'left', width:'30%', padding: '15px'}}>
+                    {validCoins.map((vc,i) =>{
+                        return <button 
+                            key={i}
+                            style={{width:'100%'}}
+                            onClick={this.props.clickHandler.bind(this,['coin', {name:vc.name, weight: vc.weight, diameter: vc.diameter}])}
+                        >{vc.name}</button>
+                    })}
+                    {invalidCoins.map((ivc,i) =>{
+                        return <button 
+                            key={i}
+                            style={{width:'100%'}}
+                            onClick={this.props.clickHandler.bind(this,{name:ivc.name, weight: ivc.weight, diameter: ivc.diameter})}
+                        >{ivc.name}</button>
+                    })}
+                </section>
+                <section className="button-container" style={{float:'left', width:'30%', padding: '15px'}}>
+                    <button 
+                        onClick={this.props.clickHandler.bind(this,['default', {}])}
+                        style={{width:'100%'}}
+                    >
                         Clear
                     </button>
                 </section>
