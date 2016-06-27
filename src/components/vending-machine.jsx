@@ -10,7 +10,7 @@ export default React.createClass({
                 coinContainer}  = this.props,
 
             {css_class: root_css_class, 
-                style}          = rootContainer.props,
+             style    : root_style}          = rootContainer.props,
 
             {props: {css_class: product_css_class},
                 products}       = productsContainer,
@@ -21,15 +21,16 @@ export default React.createClass({
                 vend}           = displayContainer,
             { validCoins,
                 invalidCoins }  = coinContainer;
-
         return (
-            <div></div>
+            <div className={root_css_class} style={root_style}>
+                <div></div>
+                <div></div>
+            </div>
         );
     }
 });
 
 
-            //<div className={root_css_class} style={style} >
             //    <section className="products-container" style={{float:'left', width: '50%', height:'600px', border: '3px', backgroundColor:'#222'}}>
             //        <div className="products-div" style={{float:'left', padding: '15px', backgroundColor:'#999'}}>
             //        <div style={{width:'100%'}}>Product:Price</div>
@@ -78,6 +79,5 @@ export default React.createClass({
             //            Clear
             //        </button>
             //    </section>
-            //</div>
 
 

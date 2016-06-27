@@ -133,22 +133,23 @@ let expectedProps ={
     };
 
 const renderer  = ReactTestUtils.createRenderer(),
-      tree      = renderer.render(<VendingMachine {...expectedProps}/>);
+      tree      = renderer.render(<VendingMachine {...expectedProps}/>),
 
-      //{props : {className, children, style}}    = tree, // <=== multi-level destructuring!!!!  see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-      //[product,,displayContainer,]               = children,
+      {type: root_type, 
+          props : {className: root_className, children: root_children, style: root_style}}    = tree, // <=== multi-level destructuring!!!!  see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+      [product,,displayContainer,]               = root_children;
 
       //{type  :   displayContainerType, 
       // props :   displayContainerProps}         = displayContainer;
 
-
+const {rootContainer:{props:{css_class:expected_root_css_class, style: expected_root_style }} } = expectedProps
 
 describe.only('Vending Machine Kata component is rendered:', () => {
     it('should render a container div', () => {
-      //  expect(tree.type).to.eql('div');
-      //  expect(className).to.eql('container-div');
-      //  expect(style).to.eql(expectedProps.rootContainer.props.style);
-      //  assert(children.length > 0, 'to have children');
+        expect(root_type).to.eql('div');
+        expect(root_className).to.eql(expected_root_css_class);
+        expect(root_style).to.eql(expected_root_style);
+        assert(root_children.length > 0, 'to have children');
     });
     describe('Features',()=>{
         describe('Accepts Coins:',()=>{
