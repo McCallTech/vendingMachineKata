@@ -51,85 +51,77 @@ let expectedProps ={
                  'diameter' : '19.05'},
             ]
         },
-        productClickHandler:  function(){
-        },
-        clearClickHandler:  function(){
-            renderFunction(
-                Object.assign( {}, expectedProps )
-            );
-
-        },
         clickHandler:  function(reducer){
 
-            var [action, object] = reducer,
-                update;
-                switch(action){
-                    case 'coin':
-                        switch(object.weight){
-                            case '5.670':
-                                update = {
-                                    displayContainer:{
-                                        balance: (Number(this.props.displayContainer.balance) + 0.25 ).toFixed(2) ,   
-                                        selectedProduct: this.props.displayContainer.selectedProduct, 
-                                        defaultMessage:this.props.displayContainer.defaultMessage,
-                                        coinReturn: this.props.displayContainer.coinReturn, 
-                                        vend: this.props.displayContainer.vend }
-                                };
-                                break;
-                            case '2.268':
-                                update = {
-                                    displayContainer:{
-                                        balance: (Number(this.props.displayContainer.balance) + 0.10 ).toFixed(2) ,  
-                                        selectedProduct: this.props.displayContainer.selectedProduct, 
-                                        defaultMessage:this.props.displayContainer.defaultMessage,
-                                        coinReturn: this.props.displayContainer.coinReturn, 
-                                        vend: this.props.displayContainer.vend }
-                                };
-                                break;
-                            case '5.000':
-                                update = {
-                                    displayContainer:{
-                                        balance: (Number(this.props.displayContainer.balance) + 0.05).toFixed(2) , 
-                                        selectedProduct: this.props.displayContainer.selectedProduct, 
-                                        defaultMessage:this.props.displayContainer.defaultMessage,
-                                        coinReturn: this.props.displayContainer.coinReturn, 
-                                        vend: this.props.displayContainer.vend }
-                                };
-                                break;
-                            default:
-                                console.log('COIN RETURN !!!!!');
-                                update = {
-                                    displayContainer:{
-                                        balance: (Number(this.props.displayContainer.balance) ).toFixed(2) , 
-                                        selectedProduct: this.props.displayContainer.selectedProduct, 
-                                        defaultMessage:this.props.displayContainer.defaultMessage}
-                                };
-                        }
-                        break;
-                    case 'product':
-                        console.log('###############Product');
-                        update = {
-                            displayContainer:{
-                                balance: (Number(this.props.displayContainer.balance) ).toFixed(2) , 
-                                selectedProduct: object.product, 
-                                defaultMessage:this.props.displayContainer.defaultMessage,
-                                coinReturn: this.props.displayContainer.coinReturn, 
-                                vend: this.props.displayContainer.vend }
-                        };
-                        break;
-                    case 'clear':
-                        break;
-                    default:
-                        console.log('------------outer default');
-                }
-            console.log('coinClickHandler:');
-            console.log('coin info: https://www.usmint.gov/about_the_mint/?action=coin_specifications');
+            //var [action, object] = reducer,
+            //    update;
+            //    switch(action){
+            //        case 'coin':
+            //            switch(object.weight){
+            //                case '5.670':
+            //                    update = {
+            //                        displayContainer:{
+            //                            balance: (Number(this.props.displayContainer.balance) + 0.25 ).toFixed(2) ,   
+            //                            selectedProduct: this.props.displayContainer.selectedProduct, 
+            //                            defaultMessage:this.props.displayContainer.defaultMessage,
+            //                            coinReturn: this.props.displayContainer.coinReturn, 
+            //                            vend: this.props.displayContainer.vend }
+            //                    };
+            //                    break;
+            //                case '2.268':
+            //                    update = {
+            //                        displayContainer:{
+            //                            balance: (Number(this.props.displayContainer.balance) + 0.10 ).toFixed(2) ,  
+            //                            selectedProduct: this.props.displayContainer.selectedProduct, 
+            //                            defaultMessage:this.props.displayContainer.defaultMessage,
+            //                            coinReturn: this.props.displayContainer.coinReturn, 
+            //                            vend: this.props.displayContainer.vend }
+            //                    };
+            //                    break;
+            //                case '5.000':
+            //                    update = {
+            //                        displayContainer:{
+            //                            balance: (Number(this.props.displayContainer.balance) + 0.05).toFixed(2) , 
+            //                            selectedProduct: this.props.displayContainer.selectedProduct, 
+            //                            defaultMessage:this.props.displayContainer.defaultMessage,
+            //                            coinReturn: this.props.displayContainer.coinReturn, 
+            //                            vend: this.props.displayContainer.vend }
+            //                    };
+            //                    break;
+            //                default:
+            //                    console.log('COIN RETURN !!!!!');
+            //                    update = {
+            //                        displayContainer:{
+            //                            balance: (Number(this.props.displayContainer.balance) ).toFixed(2) , 
+            //                            selectedProduct: this.props.displayContainer.selectedProduct, 
+            //                            defaultMessage:this.props.displayContainer.defaultMessage}
+            //                    };
+            //            }
+            //            break;
+            //        case 'product':
+            //            console.log('###############Product');
+            //            update = {
+            //                displayContainer:{
+            //                    balance: (Number(this.props.displayContainer.balance) ).toFixed(2) , 
+            //                    selectedProduct: object.product, 
+            //                    defaultMessage:this.props.displayContainer.defaultMessage,
+            //                    coinReturn: this.props.displayContainer.coinReturn, 
+            //                    vend: this.props.displayContainer.vend }
+            //            };
+            //            break;
+            //        case 'clear':
+            //            break;
+            //        default:
+            //            console.log('------------outer default');
+            //    }
+            //console.log('coinClickHandler:');
+            //console.log('coin info: https://www.usmint.gov/about_the_mint/?action=coin_specifications');
             console.log('-------------+\n'+ new Date().getTime());
-            console.log(object);
+            //console.log(object);
 
-            renderFunction(
-                Object.assign( {}, expectedProps, update )
-            );
+            //renderFunction(
+            //    Object.assign( {}, expectedProps, update )
+            //);
         }
     };
 
