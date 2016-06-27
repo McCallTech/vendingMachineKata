@@ -137,10 +137,10 @@ const renderer  = ReactTestUtils.createRenderer(),
 
       {type: root_type, 
           props : {className: root_className, children: root_children, style: root_style}}    = tree, // <=== multi-level destructuring!!!!  see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-      [product,,displayContainer,]               = root_children;
+      [displayContainer,product,,,]               = root_children,
 
-      //{type  :   displayContainerType, 
-      // props :   displayContainerProps}         = displayContainer;
+      {type  :   displayContainerType, 
+          props :  {children:  {props: {children: insert_coin}}}} = displayContainer;
 
 const {rootContainer:{props:{css_class:expected_root_css_class, style: expected_root_style }} } = expectedProps
 
@@ -159,8 +159,8 @@ describe.only('Vending Machine Kata component is rendered:', () => {
                         it('should accept valid coins (nickles, dimes, and quarters).',()=>{});
                         it('should reject invalid coins (pennies).',()=>{});
                         it('should display "INSERT COIN" when no coins are inserted',()=>{
-                            //expect(displayContainerType).to.eql('section');
-                            //expect(displayContainerProps.children).to.eql([ 'Display: ', expectedProps.displayContainer.defaultMessage]);
+                            expect(displayContainerType).to.eql('section');
+                            expect(insert_coin).to.eql(['Display: ',expectedProps.displayContainer.defaultMessage]);
                         });
                         it('should update disply when valid coin is inserted.',()=>{});
                         it('should place rejected coins in coin return',()=>{});

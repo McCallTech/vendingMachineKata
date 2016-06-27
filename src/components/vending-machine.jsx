@@ -21,9 +21,10 @@ export default React.createClass({
                 vend}           = displayContainer,
             { validCoins,
                 invalidCoins }  = coinContainer;
+            console.log(defaultMessage);
         return (
             <div className={root_css_class} style={root_style}>
-                <div></div>
+                <section><h4>Display: {defaultMessage}</h4></section>
                 <div></div>
             </div>
         );
@@ -48,6 +49,12 @@ export default React.createClass({
             //            })}
             //        </div>
             //    </section>
+//
+//
+//
+//
+//
+//
             //    <section className="display-container" style={{float:'left', width:'45%', padding: '15px'}}>
             //        <h4>Display:  {defaultMessage}</h4>
             //        <div>Balance: ${balance}</div>
@@ -55,6 +62,10 @@ export default React.createClass({
             //        <div>CoinReturn: ${coinReturn}</div>
             //        <div>Vend: {vend}</div>
             //    </section>
+//
+//
+//
+//
             //    <section className="coins-container" style={{float:'left', width:'30%', padding: '15px'}}>
             //        {validCoins.map((vc,i) =>{
             //            return <button 
