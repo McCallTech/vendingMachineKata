@@ -18,13 +18,16 @@ export default React.createClass({
                 balance, 
                 selectedProduct, 
                 coinReturn, 
-                vend}           = displayContainer,
+                vend,
+                props:{css_class: displayContainerClassName,
+                       style: displayContainerStyle}}           = displayContainer,
+
             { validCoins,
                 invalidCoins }  = coinContainer;
-            console.log(defaultMessage);
         return (
             <div className={root_css_class} style={root_style}>
-                <section><h4>Display: {defaultMessage}</h4></section>
+                <section className={displayContainerClassName} style={displayContainerStyle}><h4>Display: {defaultMessage}</h4></section>
+                <section></section>
                 <div></div>
             </div>
         );

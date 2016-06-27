@@ -9,11 +9,15 @@ import VendingMachine from '../../src/components/vending-machine';
 let expectedProps ={
         rootContainer: {
             props : {
-                css_class: 'container-div',
+                css_class: 'container-container',
                 style: {margin:'auto', width:'90%',backgroundColor:'gray'}
             },
         },
         displayContainer: {
+            props : {
+                css_class: 'display-container',
+                style: {float:'left', width:'45%', padding: '15px'}
+            },
             defaultMessage:'INSERT COIN',
             balance: '0.00',
             selectedProduct: 'NONE', 
@@ -137,12 +141,18 @@ const renderer  = ReactTestUtils.createRenderer(),
 
       {type: root_type, 
           props : {className: root_className, children: root_children, style: root_style}}    = tree, // <=== multi-level destructuring!!!!  see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-      [displayContainer,product,,,]               = root_children,
+      [displayContainer,coinContainer, product,,,]               = root_children,
 
-      {type  :   displayContainerType, 
-          props :  {children:  {props: {children: insert_coin}}}} = displayContainer;
+      {type      : coinContainerType } = coinContainer,
+      {type      : displayContainerType, 
+       className : displayContainerClassName,
+       stle      : displayContainerStyle,
+       props     : {children:  {props: {children: insert_coin}}}} = displayContainer;
 
-const {rootContainer:{props:{css_class:expected_root_css_class, style: expected_root_style }} } = expectedProps
+   const {
+       rootContainer   :{props:{css_class:expected_root_css_class, style: expected_root_style }},  
+       displayContainer:{props:{css_class:expected_display_css_class, style: expected_display_style }}  
+   } = expectedProps
 
 describe.only('Vending Machine Kata component is rendered:', () => {
     it('should render a container div', () => {
@@ -157,9 +167,14 @@ describe.only('Vending Machine Kata component is rendered:', () => {
                 describe('I want a vending machine that accepts coins.',()=>{
                     describe('So that I can collect money from the customer.',()=>{
                         it('should accept valid coins (nickles, dimes, and quarters).',()=>{});
+                            expect(coinContainerType).to.eql('section');
+                            //expect(coinContainerType).to.eql('section');
                         it('should reject invalid coins (pennies).',()=>{});
                         it('should display "INSERT COIN" when no coins are inserted',()=>{
+                            //console.log(displayContainer);
                             expect(displayContainerType).to.eql('section');
+                            expect(displayContainer.props.style).to.eql(expected_display_style);
+                            expect(displayContainer.props.className).to.eql(expected_display_css_class);
                             expect(insert_coin).to.eql(['Display: ',expectedProps.displayContainer.defaultMessage]);
                         });
                         it('should update disply when valid coin is inserted.',()=>{});
