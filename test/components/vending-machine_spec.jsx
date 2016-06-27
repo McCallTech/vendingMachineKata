@@ -132,7 +132,7 @@ let expectedProps ={
         }
     };
 
-const renderer  = ReactTestUtils.createRenderer(),
+let renderer  = ReactTestUtils.createRenderer(),
       tree      = renderer.render(<VendingMachine {...expectedProps}/>),
 
       {type: root_type, 
@@ -185,7 +185,53 @@ describe.only('Vending Machine Kata component is rendered:', () => {
                             expect(vend.props.children).to.eql([ 'CoinReturn: $', '0.00' ]);
  
                         });
-                        it('should update disply when valid coin is inserted.',()=>{});
+                        it('should update disply when valid coin is inserted.',()=>{
+                            let props ={
+                                    rootContainer: { props : { css_class: 'container-container',
+                                            style: {margin:'auto', width:'90%',backgroundColor:'gray'} }, },
+                                    displayContainer: {
+                                        props : { css_class: 'display-container', style: {float:'left', width:'45%', padding: '15px'} },
+                                        defaultMessage:'INSERT COIN',
+                                        balance: '0.20',
+                                        selectedProduct: 'NONE', 
+                                        coinReturn:'0.00',
+                                        vend: 'EMPTY'
+                                    },
+                                    productsContainer:{ props : { css_class: 'products-div', },
+                                        products: [{'name': 'cola' , 'price': '1.00'},
+                                                   {'name': 'chips', 'price': '1.50'}, 
+                                                   {'name': 'candy', 'price': '0.65'}]    
+                                    },
+                                    coinContainer:{
+                                        props : { css_class: 'coins-container', style: {float:'left', width:'45%', padding: '15px'} },
+                                        validCoins: [
+                                            {'name'     : 'Quater',
+                                             'value'    : '25',
+                                             'weight'   : '5.670',
+                                             'diameter' : '24.26'},
+                                            {'name'     : 'Dime',
+                                             'value'    : '10',
+                                             'weight'   : '2.268',
+                                             'diameter' : '17.91'},
+                                            {'name'     : 'Nickel',
+                                             'value'    : '5',
+                                             'weight'   : '5.000',
+                                             'diameter' : '21.21'}
+                                        ],
+                                        invalidCoins: [
+                                            {'name'     : 'Pennies',
+                                             'value'    : '.01',
+                                             'weight'   : '2.500',
+                                             'diameter' : '19.05'},
+                                        ]
+                                    },
+                                    clickHandler:  function(){}
+                            };
+                          tree = renderer.render(<VendingMachine {...props}/>);
+                          expect(tree.props.children[0].props.children[1].props.children).to.eql([ 'Balance: $', '0.20' ]);
+                          //console.log(tree.props.children[0].props.children[1].props.children);
+                        });
+
                         it('should place rejected coins in coin return',()=>{});
                         it('TODO',()=>{});
                     });
