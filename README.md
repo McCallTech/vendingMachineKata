@@ -18,10 +18,10 @@
 - Multi-Level destructing for ease of readability
 - Chromebook!!! :smiley:
 
-####1.) Setup TDD that defines Acceptanace Criteria: 
+####1.) Setup TDD that defines Acceptance Criteria:
 ![1_AC_test](https://raw.githubusercontent.com/McCallTech/vendingMachineKata/master/images/1_AC_test.png)
 
-####2.) Spike for prof of concept: 
+####2.) Spike for proof of concept:
 ![2_spike_destructuing.png](https://raw.githubusercontent.com/McCallTech/vendingMachineKata/master/images/2_spike_destructuing.png)
 
 ####3.) Remove Spike to TDD the application: 
