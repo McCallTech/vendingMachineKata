@@ -29,7 +29,7 @@ export default React.createClass({
         return (
             <div className={root_css_class} style={root_style}>
                 <section className={displayContainerClassName} style={displayContainerStyle}><h4>Display: {defaultMessage}</h4></section>
-                <section className="coins-container" style={coinContainerStyle}>
+                <section className={coinContainerClassName} style={coinContainerStyle}>
                     {validCoins.map((vc,i) =>{
                         return <button 
                             key={i}
