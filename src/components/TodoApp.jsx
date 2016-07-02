@@ -12,7 +12,7 @@ export class TodoApp extends React.Component {
       const activeItems = this.props.todos.filter(
         (item) => item.get('status') === 'active'
       );
-      return activeItems.size;
+      eturn activeItems.size;
     }
     return 0;
   }
