@@ -1,23 +1,24 @@
 {
-  "name": "redux-todomvc",
+  "name": "VendingMachineKata",
   "version": "1.0.0",
-  "description": "Companion repository for the \"Getting Started with React, Redux and Immutable: a Test-Driven TodoMVC Tutorial\" article.",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require ./test/setup.js 'test/**/*.@(js|jsx)'",
-    "test:watch": "npm run test -- --watch --watch-extensions jsx"
+    "test:watch": "npm run test -- --watch --watch-extensions jsx",
+    "start": "webpack-dev-server --host 0.0.0.0 --port 8080"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/phacks/redux-todomvc.git"
+    "url": "git+https://github.com/McCallTech/vendingMachineKata.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/phacks/redux-todomvc/issues"
+    "url": "https://github.com/McCallTech/vendingMachineKata/issues"
   },
-  "homepage": "https://github.com/phacks/redux-todomvc#readme",
+  "homepage": "https://github.com/McCallTech/vendingMachineKata/#/README.md",
   "devDependencies": {
     "babel-core": "^6.5.2",
     "babel-loader": "^6.2.4",

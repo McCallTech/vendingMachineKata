@@ -4,7 +4,8 @@ import {List, Map} from 'immutable';
 import {compose, createStore} from 'redux';
 import {Provider} from 'react-redux';
 import reducer from './reducer';
-import {TodoAppContainer} from './components/TodoApp';
+//import {TodoAppContainer} from './components/TodoApp';
+import {VendingMachineContainer} from './components/VendingMachine';
 
 const createStoreDevTools = compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
@@ -26,7 +27,7 @@ require('../node_modules/todomvc-app-css/index.css');
 
 ReactDOM.render(
   <Provider store={store}>
-    <TodoAppContainer />
+    <VendingMachineContainer/>
   </Provider>,
   document.getElementById('app')
 );
