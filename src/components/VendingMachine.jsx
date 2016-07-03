@@ -1,38 +1,26 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as actionCreators from '../action_creators';
-import TodoList from './TodoList'
-import TodoHeader from './TodoHeader'
-import TodoTools from './TodoTools'
-import Footer from './Footer'
+import VendingDisplay from './VendingDisplay'
+import VendingCoinButtons from './VendingCoinButtons'
 
 export class VendingMachine extends React.Component {
-  getNbActiveItems() {
-    if (this.props.todos) {
-      const activeItems = this.props.todos.filter(
-        (item) => item.get('status') === 'active'
-      );
-      return activeItems.size;
-    }
-    return 0;
-  }
   render() {
+    console.log('this.props');
+    console.log(this.props);
     return <div>
-      <section className="todoapp">
-        <TodoHeader addItem={this.props.addItem}/>
-        <TodoList {...this.props} />
-        <TodoTools  changeFilter={this.props.changeFilter}
-                    filter={this.props.filter}
-                    nbActiveItems={this.getNbActiveItems()}
-                    clearCompleted={this.props.clearCompleted}/>
-      </section>
-      <Footer />
+        <section className="todoapp"> 
+            <VendingDisplay display={this.props.display} />
+            <VendingCoinButtons {...this.props} />
+        </section>
     </div>
   }
 };
 
 function mapStateToProps(state) {
   return {
+    coins: state.get('coins'),
+    display: state.get('display'),
     todos: state.get('todos'),
     filter: state.get('filter')
   };
