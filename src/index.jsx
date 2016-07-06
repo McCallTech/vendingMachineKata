@@ -16,8 +16,11 @@ export const expectedProps ={
             defaultMessage:'INSERT COIN',
             balance: '0.00',
             selectedProduct: 'NONE', 
-            coinReturn:'0.00',
             vend: 'EMPTY'
+        },
+        coinReturnContainer: {
+            props : { css_class: 'return-container', style: {width:'45%', padding: '15px'} },
+            coinReturn:'0.00'
         },
         productsContainer:{
             props : {
@@ -70,8 +73,11 @@ export const expectedProps ={
                                         balance: (Number(this.props.displayContainer.balance) + 0.25 ).toFixed(2) ,   
                                         selectedProduct: this.props.displayContainer.selectedProduct, 
                                         defaultMessage:this.props.displayContainer.defaultMessage,
-                                        coinReturn: this.props.displayContainer.coinReturn, 
-                                        vend: this.props.displayContainer.vend }
+                                        vend: this.props.displayContainer.vend },
+                                    coinReturnContainer: {
+                                        props : { css_class: 'return-container', style: {width:'45%', padding: '15px'} },
+                                        coinReturn: (Number(this.props.coinReturnContainer.coinReturn)).toFixed(2)  
+                                    }
                                 };
                                 break;
                             case '2.268':
@@ -81,8 +87,12 @@ export const expectedProps ={
                                         balance: (Number(this.props.displayContainer.balance) + 0.10 ).toFixed(2) ,  
                                         selectedProduct: this.props.displayContainer.selectedProduct, 
                                         defaultMessage:this.props.displayContainer.defaultMessage,
-                                        coinReturn: this.props.displayContainer.coinReturn, 
-                                        vend: this.props.displayContainer.vend }
+                                        coinReturn: (Number(this.props.coinReturnContainer.coinReturn)).toFixed(2) , 
+                                        vend: this.props.displayContainer.vend },
+                                    coinReturnContainer: {
+                                        props : { css_class: 'return-container', style: {width:'45%', padding: '15px'} },
+                                        coinReturn: (Number(this.props.coinReturnContainer.coinReturn)).toFixed(2)  
+                                    }
                                 };
                                 break;
                             case '5.000':
@@ -92,8 +102,12 @@ export const expectedProps ={
                                         balance: (Number(this.props.displayContainer.balance) + 0.05).toFixed(2) , 
                                         selectedProduct: this.props.displayContainer.selectedProduct, 
                                         defaultMessage:this.props.displayContainer.defaultMessage,
-                                        coinReturn: this.props.displayContainer.coinReturn, 
-                                        vend: this.props.displayContainer.vend }
+                                        coinReturn: (Number(this.props.coinReturnContainer.coinReturn)).toFixed(2) , 
+                                        vend: this.props.displayContainer.vend },
+                                    coinReturnContainer: {
+                                        props : { css_class: 'return-container', style: {width:'45%', padding: '15px'} },
+                                        coinReturn: (Number(this.props.coinReturnContainer.coinReturn)).toFixed(2)  
+                                    }
                                 };
                                 break;
                             default:
@@ -104,9 +118,13 @@ export const expectedProps ={
                                         balance: (Number(this.props.displayContainer.balance) ).toFixed(2) , 
                                         selectedProduct: this.props.displayContainer.selectedProduct, 
                                         defaultMessage:this.props.displayContainer.defaultMessage,
-                                        coinReturn: (Number(this.props.displayContainer.coinReturn)+ 0.01).toFixed(2) , 
-                                        vend: this.props.displayContainer.vend }
+                                        vend: this.props.displayContainer.vend },
+                                    coinReturnContainer: {
+                                        props : { css_class: 'return-container', style: {width:'45%', padding: '15px'} },
+                                        coinReturn: (Number(this.props.coinReturnContainer.coinReturn)+ 0.01).toFixed(2)  
+                                    }
                                 };
+                                break;
                         }
                         break;
                     case 'product':
@@ -118,7 +136,11 @@ export const expectedProps ={
                                 selectedProduct: object.product, 
                                 defaultMessage:this.props.displayContainer.defaultMessage,
                                 coinReturn: this.props.displayContainer.coinReturn, 
-                                vend: this.props.displayContainer.vend }
+                                vend: this.props.displayContainer.vend },
+                                    coinReturnContainer: {
+                                        props : { css_class: 'return-container', style: {width:'45%', padding: '15px'} },
+                                        coinReturn: (Number(this.props.coinReturnContainer.coinReturn)).toFixed(2)  
+                                    }
                         };
                         break;
                     case 'clear':
@@ -130,7 +152,7 @@ export const expectedProps ={
             console.log('-------------+\n'+ new Date().getTime());
             console.log(object);
             console.log('balance: '+update.displayContainer.balance);
-            console.log('coinReturn: '+update.displayContainer.coinReturn);
+            console.log('coinReturn: '+update.coinReturnContainer.coinReturn);
 
             renderFunction(
                 Object.assign( {}, expectedProps, update )

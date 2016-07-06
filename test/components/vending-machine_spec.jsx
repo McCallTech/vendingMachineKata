@@ -19,8 +19,11 @@ let expectedProps ={
             defaultMessage:'INSERT COIN',
             balance: '0.00',
             selectedProduct: 'NONE', 
-            coinReturn:'0.00',
             vend: 'EMPTY'
+        },
+        coinReturnContainer: {
+            props : { css_class: 'return-container', style: {width:'45%', padding: '15px'} },
+            coinReturn:'0.00'
         },
         productsContainer:{
             props : {
@@ -52,7 +55,7 @@ let expectedProps ={
                  'diameter' : '21.21',
                  'valid'    : 'valid'},
                 {'name'     : 'Penny',
-                 'value'    : '.01',
+                 'value'    : '0.01',
                  'weight'   : '2.500',
                  'diameter' : '19.05',
                  'valid'    : 'in-valid'},
@@ -69,45 +72,62 @@ let expectedProps ={
                             case '5.670':
                                 update = {
                                     displayContainer:{
-                                        props : expectedProps.displayContainer.props,
-                                        defaultMessage:expectedProps.displayContainer.defaultMessage,
-                                        balance: (Number(expectedProps.displayContainer.balance) + 0.25 ).toFixed(2) ,   
-                                        selectedProduct: expectedProps.displayContainer.selectedProduct, 
-                                        coinReturn: expectedProps.displayContainer.coinReturn, 
-                                        vend: expectedProps.displayContainer.vend }
+                                        props : { css_class: 'display-container', style: {float:'left', width:'45%', padding: '15px'} },
+                                        balance: (Number(this.props.displayContainer.balance) + 0.25 ).toFixed(2) ,   
+                                        selectedProduct: this.props.displayContainer.selectedProduct, 
+                                        defaultMessage:this.props.displayContainer.defaultMessage,
+                                        vend: this.props.displayContainer.vend },
+                                    coinReturnContainer: {
+                                        props : { css_class: 'return-container', style: {width:'45%', padding: '15px'} },
+                                        coinReturn: (Number(this.props.coinReturnContainer.coinReturn)).toFixed(2)  
+                                    }
                                 };
                                 break;
                             case '2.268':
                                 update = {
                                     displayContainer:{
-                                        props : expectedProps.displayContainer.props,
-                                        balance: (Number(expectedProps.displayContainer.balance) + 0.10 ).toFixed(2) ,  
-                                        selectedProduct: expectedProps.displayContainer.selectedProduct, 
-                                        defaultMessage:expectedProps.displayContainer.defaultMessage,
-                                        coinReturn: expectedProps.displayContainer.coinReturn, 
-                                        vend: expectedProps.displayContainer.vend }
+                                        props : { css_class: 'display-container', style: {float:'left', width:'45%', padding: '15px'} },
+                                        balance: (Number(this.props.displayContainer.balance) + 0.10 ).toFixed(2) ,  
+                                        selectedProduct: this.props.displayContainer.selectedProduct, 
+                                        defaultMessage:this.props.displayContainer.defaultMessage,
+                                        coinReturn: (Number(this.props.coinReturnContainer.coinReturn)).toFixed(2) , 
+                                        vend: this.props.displayContainer.vend },
+                                    coinReturnContainer: {
+                                        props : { css_class: 'return-container', style: {width:'45%', padding: '15px'} },
+                                        coinReturn: (Number(this.props.coinReturnContainer.coinReturn)).toFixed(2)  
+                                    }
                                 };
                                 break;
                             case '5.000':
                                 update = {
                                     displayContainer:{
-                                        props : expectedProps.displayContainer.props,
-                                        balance: (Number(expectedProps.displayContainer.balance) + 0.05).toFixed(2) , 
-                                        selectedProduct: expectedProps.displayContainer.selectedProduct, 
-                                        defaultMessage:expectedProps.displayContainer.defaultMessage,
-                                        coinReturn: expectedProps.displayContainer.coinReturn, 
-                                        vend: expectedProps.displayContainer.vend }
+                                        props : { css_class: 'display-container', style: {float:'left', width:'45%', padding: '15px'} },
+                                        balance: (Number(this.props.displayContainer.balance) + 0.05).toFixed(2) , 
+                                        selectedProduct: this.props.displayContainer.selectedProduct, 
+                                        defaultMessage:this.props.displayContainer.defaultMessage,
+                                        coinReturn: (Number(this.props.coinReturnContainer.coinReturn)).toFixed(2) , 
+                                        vend: this.props.displayContainer.vend },
+                                    coinReturnContainer: {
+                                        props : { css_class: 'return-container', style: {width:'45%', padding: '15px'} },
+                                        coinReturn: (Number(this.props.coinReturnContainer.coinReturn)).toFixed(2)  
+                                    }
                                 };
                                 break;
                             default:
-                                //console.log('COIN RETURN !!!!!');
+                                console.log('COIN RETURN !!!!!');
                                 update = {
                                     displayContainer:{
-                                        props : expectedProps.displayContainer.props,
-                                        balance: (Number(expectedProps.displayContainer.balance) ).toFixed(2) , 
-                                        selectedProduct: expectedProps.displayContainer.selectedProduct, 
-                                        defaultMessage:expectedProps.displayContainer.defaultMessage}
+                                        props : { css_class: 'display-container', style: {float:'left', width:'45%', padding: '15px'} },
+                                        balance: (Number(this.props.displayContainer.balance) ).toFixed(2) , 
+                                        selectedProduct: this.props.displayContainer.selectedProduct, 
+                                        defaultMessage:this.props.displayContainer.defaultMessage,
+                                        vend: this.props.displayContainer.vend },
+                                    coinReturnContainer: {
+                                        props : { css_class: 'return-container', style: {width:'45%', padding: '15px'} },
+                                        coinReturn: (Number(this.props.coinReturnContainer.coinReturn)+ 0.01).toFixed(2)  
+                                    }
                                 };
+                                break;
                         }
                         break;
                     case 'product':
@@ -119,7 +139,11 @@ let expectedProps ={
                                 selectedProduct: object.product, 
                                 defaultMessage:expectedProps.displayContainer.defaultMessage,
                                 coinReturn: (Number(expectedProps.displayContainer.coinReturn)+ 0.01).toFixed(2) , 
-                                vend: expectedProps.displayContainer.vend }
+                                vend: expectedProps.displayContainer.vend },
+                                    coinReturnContainer: {
+                                        props : { css_class: 'return-container', style: {width:'45%', padding: '15px'} },
+                                        coinReturn: (Number(this.props.coinReturnContainer.coinReturn)).toFixed(2)  
+                                    }
                         };
                         break;
                     case 'clear':
@@ -153,7 +177,7 @@ describe.only('Vending Machine Kata component is rendered:', () => {
             describe('As a vendor, ',()=>{
                 describe('I want a vending machine that accepts coins.',()=>{
                     describe('So that I can collect money from the customer.',()=>{
-                        it('should accept valid coins (nickles, dimes, and quarters) and reject invalid coins (pennies).',()=>{});
+                        it('should accept valid coins (nickles, dimes, and quarters).',()=>{});
                             const coinContainer = wrapper.find('.coins-container');
                             expect(coinContainer.length).to.equal(1);
                             expect(coinContainer.props().className).to.equal(expectedProps.coinContainer.props.css_class)
@@ -167,7 +191,7 @@ describe.only('Vending Machine Kata component is rendered:', () => {
                             expect(displayContainer.props().style).to.equal(expectedProps.displayContainer.props.style)
                             expect(displayContainer.text()).to.equal('Display: '+expectedProps.displayContainer.defaultMessage)
                         });
-                        it('should update disply when valid coin is inserted.',()=>{
+                        it('should update disply when valid coin is inserted or place rejected coins in coin return',()=>{
 
                             const coinContainer = wrapper.find('.coins-container');
                             coinContainer.children().forEach((c,i) =>{
@@ -175,16 +199,15 @@ describe.only('Vending Machine Kata component is rendered:', () => {
                                 expect(c.text()).to.equal(expectedProps.coinContainer.coins[i].name)
                                 expect(c.props().onClick).to.be.ok
                                 expect(Number(c.key())).to.equal(i)
-                                var thing_thing = c.simulate('click');
+                                c.simulate('click');
                                 const displayContainer = wrapper.find('.display-container');
                                 const expectedDisplay = expectedProps.coinContainer.coins[i].value > 0.01 ? '$'+expectedProps.coinContainer.coins[i].value: expectedProps.displayContainer.defaultMessage;
                                 expect(displayContainer.text()).to.equal('Display: '+expectedDisplay )
+                                const expectedReturnDisplay = expectedProps.coinContainer.coins[i].value <= 0.01 ? +expectedProps.coinContainer.coins[i].value: '0.00';
+                                const coinReturnContainer = wrapper.find('.return-container');
+                                expect(coinReturnContainer.props().className).to.equal(expectedProps.coinReturnContainer.props.css_class)
+                                expect(coinReturnContainer.text()).to.equal('CoinReturn: $'+expectedReturnDisplay)
                             });
-                        });
-                        it('should place rejected coins in coin return',()=>{
-                            const coinContainer = wrapper.find('.coins-container');
-                            //var thing = expectedProps.clickHandler('coin',{'weight': 5.670})
-                            //console.log(thing);
                         });
                     });
                 });

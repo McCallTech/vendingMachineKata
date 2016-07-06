@@ -4,17 +4,24 @@ export default React.createClass({
     
     render: function() {
 
-        const { coinContainer, clickHandler, displayContainer, rootContainer}   = this.props,
-              { css_class: root_css_class, style: root_style } = rootContainer.props,
-              { css_class: coin_css_class, style: coin_style } = coinContainer.props,
-              { coins }                                        = coinContainer,
+        const { coinContainer, clickHandler, displayContainer, 
+                coinReturnContainer, rootContainer}                  = this.props,
+              { css_class: root_css_class, style: root_style }       = rootContainer.props,
+              { css_class: coin_css_class, style: coin_style }       = coinContainer.props,
+              { coins }                                              = coinContainer,
               { css_class: display_css_class, style: display_style } = displayContainer.props,
-              { coinReturn, defaultMessage, balance } = displayContainer;
+              { defaultMessage, balance }                            = displayContainer,
+              { css_class: return_css_class, style: return_style}    = coinReturnContainer.props,
+              { coinReturn }                                         = coinReturnContainer;
 
         return (
             <div className={root_css_class} style={root_style}>
-                <section className={display_css_class} style={display_style}>Display: {Number(balance) > 0? '$'+balance : defaultMessage}</section>
-                <section style={display_style}>CoinReturn: ${coinReturn}</section>
+                <section className={display_css_class} style={display_style}>
+                    Display: {Number(balance) > 0? '$'+balance : defaultMessage}
+                </section>
+                <section className={return_css_class} style={return_style}>
+                    CoinReturn: ${coinReturn}
+                </section>
                 <section className={coin_css_class} style={coin_style }>
                     {coins.map((c,k)=>{
                         return <button 
