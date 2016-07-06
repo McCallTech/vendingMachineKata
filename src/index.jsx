@@ -10,7 +10,7 @@ export const expectedProps ={
         },
         displayContainer: {
             props : { css_class: 'display-container', style: {float:'left', width:'45%', padding: '15px'} },
-            defaultMessage:'INSERT COIN',
+            message:'INSERT COIN',
             balance: '0.00',
             selectedProduct: 'NONE', 
             vend: 'EMPTY'
@@ -39,27 +39,52 @@ export const expectedProps ={
 
             var [action, object] = reducer,
                 update,
-                balance,
+                {props,balance,message,selectedProduct,vend}=this.props.displayContainer,
                 coinReturn;
             switch(action){
                 case 'coin':
                     switch(object.weight){
                         case '5.670':
-                            balance = (Number(this.props.displayContainer.balance) + 0.25 ).toFixed(2);   
+                            message = '$'+(balance = (Number(balance) + 0.25 ).toFixed(2))   
+                            //console.log(message)
                             break;
                         case '2.268':
-                            balance = (Number(this.props.displayContainer.balance) + 0.10 ).toFixed(2);   
+                            message = '$'+(balance = (Number(balance) + 0.10 ).toFixed(2))   
                             break;
                         case '5.000':
-                            balance = (Number(this.props.displayContainer.balance) + 0.05 ).toFixed(2);   
+                            message = '$'+(balance = (Number(balance) + 0.05 ).toFixed(2))   
                             break;
                         default:
-                            console.log('COIN RETURN !!!!!');
+                            //console.log('COIN RETURN !!!!!');
+                            message = Number(balance)? '$'+(balance = (Number(balance)).toFixed(2)) : 'INSERT COIN'  
                             coinReturn = (Number(this.props.coinReturnContainer.coinReturn) + 0.01 ).toFixed(2);   
                             break;
                     }break;
                 case 'product':
-                    console.log('###############Product');
+                    selectedProduct = object
+                    balance = this.props.displayContainer.balance
+                    if(Number(balance) >= Number(selectedProduct.price) ){
+                        vend = selectedProduct.product
+                        coinReturn = balance - selectedProduct.price
+                        balance = '0.00'
+                        message='THANK YOU!'
+                    } else if(Number(balance) < Number(selectedProduct.price) ){
+                        console.log('Number(balance)')
+                        console.log(Number(balance))
+                        console.log('Number(selectedProduct.price)')
+                        console.log(Number(selectedProduct.price))
+                        console.log('llllllllllllllllleeeeeeeeeeeeeeeesssssssssssssssssss')
+                        message='PRICE $'+selectedProduct.price
+                    }
+                    //console.log('###############message');
+                    //console.log(message);
+                    //console.log('###############balance');
+                    //console.log(balance );
+                    //console.log('###############Product');
+                    //console.log(selectedProduct );
+                    //console.log('###############vend');
+                    //console.log(vend);
+                    //console.log('======================');
                     break;
                 case 'clear':
                     break;
@@ -68,11 +93,11 @@ export const expectedProps ={
             }
             update = {
                 displayContainer: {
-                    props : { css_class: 'display-container', style: {float:'left', width:'45%', padding: '15px'} },
-                    defaultMessage:'INSERT COIN',
-                    balance: balance? balance : this.props.displayContainer.balance ,
-                    selectedProduct: 'NONE', 
-                    vend: 'EMPTY'
+                    props : props,
+                    message: message,
+                    balance: balance,
+                    selectedProduct: selectedProduct,
+                    vend: vend,
                 },
                 coinReturnContainer: {
                     props : { css_class: 'return-container', style: {float:'left', width:'45%', padding: '15px'} },

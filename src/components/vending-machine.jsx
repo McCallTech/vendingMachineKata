@@ -10,7 +10,7 @@ export default React.createClass({
               { css_class: coin_css_class, style: coin_style }          = coinContainer.props,
               { coins }                                                 = coinContainer,
               { css_class: display_css_class, style: display_style }    = displayContainer.props,
-              { defaultMessage, balance }                               = displayContainer,
+              { message, balance }                               = displayContainer,
               { css_class: return_css_class, style: return_style}       = coinReturnContainer.props,
               { coinReturn }                                            = coinReturnContainer,
               { css_class: products_css_class, style: products_style}   = productsContainer.props,
@@ -33,10 +33,16 @@ export default React.createClass({
                     })}
                 </section>
                 <section className={display_css_class} style={display_style}>
-                    Display: {Number(balance) > 0? '$'+balance : defaultMessage}
+                    Display: { message }
                 </section>
                 <section className={return_css_class} style={return_style}>
                     CoinReturn: ${coinReturn}
+                    <button  style={{float:'left'}}
+                            onClick={this.props.clickHandler.bind(this,['return', {}])}
+                    >
+                    Return
+                    </button>
+
                 </section>
                 <section className={coin_css_class} style={coin_style }>
                     {coins.map((c,k)=>{
@@ -71,7 +77,7 @@ export default React.createClass({
 //
 //            {props: {css_class: product_css_class},
 //                products}       = productsContainer,
-//            {defaultMessage, 
+//            {message, 
 //                balance, 
 //                selectedProduct, 
 //                coinReturn, 
@@ -104,7 +110,7 @@ export default React.createClass({
 //
 //
 //                <section className={displayContainer.props.css_class} style={displayContainerStyle}>
-//                    <h4>Display: {defaultMessage}</h4>
+//                    <h4>Display: {message}</h4>
 //                    <div>Balance: ${balance}</div>
 //                    <div>Selected Product: {selectedProduct}</div>
 //                    <div>Vend: {vend}</div>
