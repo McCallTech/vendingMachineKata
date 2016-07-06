@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import HiMom from './components/Hi-Mom';
 import VendingMachineKata from './components/vending-machine';
-let expectedProps ={
+export const expectedProps ={
         rootContainer: {
             props : {
                 css_class: 'container-container',
@@ -104,7 +104,7 @@ let expectedProps ={
                                         balance: (Number(this.props.displayContainer.balance) ).toFixed(2) , 
                                         selectedProduct: this.props.displayContainer.selectedProduct, 
                                         defaultMessage:this.props.displayContainer.defaultMessage,
-                                        coinReturn: this.props.displayContainer.coinReturn, 
+                                        coinReturn: (Number(this.props.displayContainer.coinReturn)+ 0.01).toFixed(2) , 
                                         vend: this.props.displayContainer.vend }
                                 };
                         }
@@ -130,13 +130,14 @@ let expectedProps ={
             console.log('-------------+\n'+ new Date().getTime());
             console.log(object);
             console.log('balance: '+update.displayContainer.balance);
+            console.log('coinReturn: '+update.displayContainer.coinReturn);
 
             renderFunction(
                 Object.assign( {}, expectedProps, update )
             );
         }
     };
-export {expectedProps as expectedProps };
+export {expectedProps };
 
 let renderFunction = function (expectedProps) {
 

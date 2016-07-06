@@ -9,11 +9,12 @@ export default React.createClass({
               { css_class: coin_css_class, style: coin_style } = coinContainer.props,
               { coins }                                        = coinContainer,
               { css_class: display_css_class, style: display_style } = displayContainer.props,
-              { defaultMessage, balance } = displayContainer;
+              { coinReturn, defaultMessage, balance } = displayContainer;
 
         return (
             <div className={root_css_class} style={root_style}>
-                <section className={display_css_class} style={display_style}>Display: {Number(balance) > 0? balance : defaultMessage}</section>
+                <section className={display_css_class} style={display_style}>Display: {Number(balance) > 0? '$'+balance : defaultMessage}</section>
+                <section style={display_style}>CoinReturn: ${coinReturn}</section>
                 <section className={coin_css_class} style={coin_style }>
                     {coins.map((c,k)=>{
                         return <button 
@@ -76,7 +77,6 @@ export default React.createClass({
 //                    <h4>Display: {defaultMessage}</h4>
 //                    <div>Balance: ${balance}</div>
 //                    <div>Selected Product: {selectedProduct}</div>
-//                    <div>CoinReturn: ${coinReturn}</div>
 //                    <div>Vend: {vend}</div>
 //                </section>
 //
