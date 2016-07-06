@@ -8,12 +8,7 @@ import {assert, expect} from 'chai';
 import VendingMachine from '../../src/components/vending-machine';
 
 let expectedProps ={
-        rootContainer: {
-            props : {
-                css_class: 'container-container',
-                style: {margin:'auto', width:'90%',backgroundColor:'gray'}
-            },
-        },
+        rootContainer: { props : { css_class: 'container-container', style: {margin:'auto', width:'90%',backgroundColor:'gray'} }, },
         displayContainer: {
             props : { css_class: 'display-container', style: {width:'45%', padding: '15px'} },
             defaultMessage:'INSERT COIN',
@@ -26,39 +21,18 @@ let expectedProps ={
             coinReturn:'0.00'
         },
         productsContainer:{
-            props : {
-                css_class: 'products-div',
-            },
+            props : { css_class: 'products-div', },
             products: [{'name': 'cola' , 'price': '1.00'},
                        {'name': 'chips', 'price': '1.50'}, 
                        {'name': 'candy', 'price': '0.65'}]    
         },
         coinContainer:{
-            props : {
-                css_class: 'coins-container',
-                style: {float:'left', width:'45%', padding: '15px'}
-            },
+            props : { css_class: 'coins-container', style: {float:'left', width:'45%', padding: '15px'} },
             coins: [
-                {'name'     : 'Quarter',
-                 'value'    : '0.25',
-                 'weight'   : '5.670',
-                 'diameter' : '24.26',
-                 'valid'    : 'valid'},
-                {'name'     : 'Dime',
-                 'value'    : '0.10',
-                 'weight'   : '2.268',
-                 'diameter' : '17.91',
-                 'valid'    : 'valid'},
-                {'name'     : 'Nickel',
-                 'value'    : '0.05',
-                 'weight'   : '5.000',
-                 'diameter' : '21.21',
-                 'valid'    : 'valid'},
-                {'name'     : 'Penny',
-                 'value'    : '0.01',
-                 'weight'   : '2.500',
-                 'diameter' : '19.05',
-                 'valid'    : 'in-valid'},
+                {'name'     : 'Quarter', 'value'    : '0.25', 'weight'   : '5.670', 'diameter' : '24.26', 'valid'    : 'valid'   },
+                {'name'     : 'Dime'   , 'value'    : '0.10', 'weight'   : '2.268', 'diameter' : '17.91', 'valid'    : 'valid'   },
+                {'name'     : 'Nickel' , 'value'    : '0.05', 'weight'   : '5.000', 'diameter' : '21.21', 'valid'    : 'valid'   },
+                {'name'     : 'Penny'  , 'value'    : '0.01', 'weight'   : '2.500', 'diameter' : '19.05', 'valid'    : 'in-valid'},
             ]
         },
         clickHandler:  function(reducer){
