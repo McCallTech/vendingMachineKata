@@ -4,7 +4,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import HiMom from './components/Hi-Mom';
 import VendingMachineKata from './components/vending-machine';
-
 let expectedProps ={
         rootContainer: {
             props : {
@@ -33,25 +32,27 @@ let expectedProps ={
                 css_class: 'coins-container',
                 style: {float:'left', width:'45%', padding: '15px'}
             },
-            validCoins: [
-                {'name'     : 'Quater',
+            coins: [
+                {'name'     : 'Quarter',
                  'value'    : '25',
                  'weight'   : '5.670',
-                 'diameter' : '24.26'},
+                 'diameter' : '24.26',
+                 'valid'    : 'valid'},
                 {'name'     : 'Dime',
                  'value'    : '10',
                  'weight'   : '2.268',
-                 'diameter' : '17.91'},
+                 'diameter' : '17.91',
+                 'valid'    : 'valid'},
                 {'name'     : 'Nickel',
                  'value'    : '5',
                  'weight'   : '5.000',
-                 'diameter' : '21.21'}
-            ],
-            invalidCoins: [
-                {'name'     : 'Pennies',
+                 'diameter' : '21.21',
+                 'valid'    : 'valid'},
+                {'name'     : 'Penny',
                  'value'    : '.01',
                  'weight'   : '2.500',
-                 'diameter' : '19.05'},
+                 'diameter' : '19.05',
+                 'valid'    : 'in-valid'},
             ]
         },
 
@@ -128,12 +129,14 @@ let expectedProps ={
             console.log('coin info: https://www.usmint.gov/about_the_mint/?action=coin_specifications');
             console.log('-------------+\n'+ new Date().getTime());
             console.log(object);
+            console.log('balance: '+update.displayContainer.balance);
 
             renderFunction(
                 Object.assign( {}, expectedProps, update )
             );
         }
     };
+export {expectedProps as expectedProps };
 
 let renderFunction = function (expectedProps) {
 
