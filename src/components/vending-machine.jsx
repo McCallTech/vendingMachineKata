@@ -5,17 +5,33 @@ export default React.createClass({
     render: function() {
 
         const { coinContainer, clickHandler, displayContainer, 
-                coinReturnContainer, rootContainer}                  = this.props,
-              { css_class: root_css_class, style: root_style }       = rootContainer.props,
-              { css_class: coin_css_class, style: coin_style }       = coinContainer.props,
-              { coins }                                              = coinContainer,
-              { css_class: display_css_class, style: display_style } = displayContainer.props,
-              { defaultMessage, balance }                            = displayContainer,
-              { css_class: return_css_class, style: return_style}    = coinReturnContainer.props,
-              { coinReturn }                                         = coinReturnContainer;
+                coinReturnContainer, productsContainer, rootContainer}  = this.props,
+              { css_class: root_css_class, style: root_style }          = rootContainer.props,
+              { css_class: coin_css_class, style: coin_style }          = coinContainer.props,
+              { coins }                                                 = coinContainer,
+              { css_class: display_css_class, style: display_style }    = displayContainer.props,
+              { defaultMessage, balance }                               = displayContainer,
+              { css_class: return_css_class, style: return_style}       = coinReturnContainer.props,
+              { coinReturn }                                            = coinReturnContainer,
+              { css_class: products_css_class, style: products_style}   = productsContainer.props,
+              { products }                                              = productsContainer;
 
         return (
             <div className={root_css_class} style={root_style}>
+                <section className={products_css_class} style={products_style}>
+                    {products.map((p,i) => {
+                        return <button key={i} style={{width:'100%'}}
+                            onClick={this.props.clickHandler.bind(this,['product', {product:p.name, price: p.price}])}
+                        >
+                            <div className="product-div" style={{float:'left', padding: '15px', backgroundColor:'#888'}}>
+                                {p.name}
+                            </div>
+                            <div className="price-div" style={{float:'right', padding: '15px', backgroundColor:'#888'}}>
+                                ${p.price}
+                            </div>
+                        </button>
+                    })}
+                </section>
                 <section className={display_css_class} style={display_style}>
                     Display: {Number(balance) > 0? '$'+balance : defaultMessage}
                 </section>
@@ -37,6 +53,13 @@ export default React.createClass({
     }
 });
 
+                    //{products.map((p,k)=>{
+                    //    return <button
+                    //        onClick={clickHandler.bind(this, ['product',{'product':p.name, 'price':p.price}])}
+                    //        key={k}
+                    //    >{p.name}</button>
+
+                    //})}
 
 //        let {rootContainer, 
 //                displayContainer, 
