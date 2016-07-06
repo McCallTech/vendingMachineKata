@@ -88,7 +88,7 @@ let expectedProps ={
                                 };
                                 break;
                             default:
-                                console.log('COIN RETURN !!!!!');
+                                //console.log('COIN RETURN !!!!!');
                                 update = {
                                     displayContainer:{
                                         props : { css_class: 'display-container', style: {float:'left', width:'45%', padding: '15px'} },
