@@ -20,7 +20,7 @@ export const expectedProps ={
             coinReturn:'0.00'
         },
         productsContainer:{
-            props : { css_class: 'products-container',style: {float:'left', width: '50%', height:'100px', border: '3px', backgroundColor:'#999'} },
+            props : { css_class: 'products-container',style: {float:'left', width: '50%', height:'170px', border: '3px', backgroundColor:'#999'} },
             products: [{'name': 'cola' , 'price': '1.00'},
                        {'name': 'chips', 'price': '1.50'}, 
                        {'name': 'candy', 'price': '0.65'}]    
