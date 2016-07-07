@@ -65,7 +65,7 @@ export const expectedProps ={
                     balance = this.props.displayContainer.balance
                     if(Number(balance) >= Number(selectedProduct.price) ){
                         vend = selectedProduct.product
-                        coinReturn = balance - selectedProduct.price
+                        coinReturn = (balance - selectedProduct.price).toFixed(2)
                         balance = '0.00'
                         message='THANK YOU!'
                     } else if(Number(balance) < Number(selectedProduct.price) ){
