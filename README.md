@@ -5,7 +5,7 @@
 ![chromebook](https://img.shields.io/badge/Chromebook%20Approved-100%25-green.svg)
 
 # Dev | DevOps: CM | DevOps: CI
-### Dev Kata: (current state: 20-23% finished)
+### Dev Kata: (current state: 40-55% finished)
 - Kata Repo: https://github.com/guyroyse/vending-machine-kata#vending-machine-kata
 - Code Repo: https://github.com/McCallTech/vendingMachineKata
 - gh-pages: http://mccalltech.github.io/vendingMachineKata/
