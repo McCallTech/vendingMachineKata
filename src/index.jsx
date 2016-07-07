@@ -101,7 +101,7 @@ export const expectedProps ={
                 },
                 coinReturnContainer: {
                     props : { css_class: 'return-container', style: {float:'left', width:'45%', padding: '15px'} },
-                    coinReturn: coinReturn?coinReturn : this.props.coinReturnContainer.coinReturn
+                    coinReturn: coinReturn?(coinReturn).toFixed(2) : (this.props.coinReturnContainer.coinReturn).toFixed(2)
             }}
             console.log('coinClickHandler:');
             console.log('coin info: https://www.usmint.gov/about_the_mint/?action=coin_specifications');
