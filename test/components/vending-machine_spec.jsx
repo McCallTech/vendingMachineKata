@@ -7,9 +7,9 @@ import sinon from 'sinon';
 import {assert, expect} from 'chai';
 import VendingMachine from '../../src/components/vending-machine';
 
-const {data} = require('../../src/data');
+//const {data} = require('../../src/data');
 console.log('===============================================================');
-console.log(data);
+//console.log(data);
 
 let expectedProps ={
         rootContainer: { props : { css_class: 'container-container', style: {margin:'auto', width:'90%',backgroundColor:'gray'} }, },
