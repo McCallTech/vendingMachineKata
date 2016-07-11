@@ -105,7 +105,7 @@ let expectedProps ={
                 },
                 coinReturnContainer: {
                     props : { css_class: 'return-container', style: {float:'left', width:'45%', padding: '15px'} },
-                    coinReturn: coinReturn?coinReturn : this.props.coinReturnContainer.coinReturn
+                    coinReturn: coinReturn?Number(coinReturn).toFixed(2) : Number(this.props.coinReturnContainer.coinReturn).toFixed(2)
             }}
             //console.log('------update')
             //console.log(update)
